@@ -1,0 +1,51 @@
+C:\Users\mire\Documents\MRH data\Forskning\FSharpPrograms\CompilerExperiments\GuardedCommands\GuardedCommands\bin\Debug\GuardedCommands.XML
+C:\Users\mire\Documents\MRH data\Forskning\FSharpPrograms\CompilerExperiments\GuardedCommands\GuardedCommands\bin\Debug\GuardedCommands.dll
+C:\Users\mire\Documents\MRH data\Forskning\FSharpPrograms\CompilerExperiments\GuardedCommands\GuardedCommands\bin\Debug\GuardedCommands.pdb
+C:\Users\mire\Documents\MRH data\Forskning\FSharpPrograms\CompilerExperiments\GuardedCommands\GuardedCommands\bin\Debug\FSharp.Core.dll
+C:\Users\mire\Documents\MRH data\Forskning\FSharpPrograms\CompilerExperiments\GuardedCommands\GuardedCommands\bin\Debug\FSharp.PowerPack.dll
+C:\Users\mire\Documents\MRH data\Forskning\FSharpPrograms\CompilerExperiments\GuardedCommands\GuardedCommands\bin\Debug\Machine.dll
+C:\Users\mire\Documents\MRH data\Forskning\FSharpPrograms\CompilerExperiments\GuardedCommands\GuardedCommands\bin\Debug\virtualMachine.dll
+C:\Users\mire\Documents\MRH data\Forskning\FSharpPrograms\CompilerExperiments\GuardedCommands\GuardedCommands\bin\Debug\FSharp.PowerPack.pdb
+C:\Users\mire\Documents\MRH data\Forskning\FSharpPrograms\CompilerExperiments\GuardedCommands\GuardedCommands\bin\Debug\FSharp.PowerPack.xml
+C:\Users\mire\Documents\MRH data\Forskning\FSharpPrograms\CompilerExperiments\GuardedCommands\GuardedCommands\bin\Debug\FSharp.Core.xml
+C:\Users\mire\Documents\MRH data\Forskning\FSharpPrograms\CompilerExperiments\GuardedCommands\GuardedCommands\obj\Debug\GuardedCommands.fsprojResolveAssemblyReference.cache
+C:\Users\mire\Documents\MRH data\Forskning\FSharpPrograms\CompilerExperiments\GuardedCommands\GuardedCommands\obj\Debug\GuardedCommands.dll
+C:\Users\mire\Documents\MRH data\Forskning\FSharpPrograms\CompilerExperiments\GuardedCommands\GuardedCommands\obj\Debug\GuardedCommands.pdb
+C:\Users\mire\Documents\MRH data\Forskning\FSharpPrograms\CompilerExperiments\GuardedCommandsVersion2\GuardedCommands\GuardedCommands\bin\Debug\GuardedCommands.XML
+C:\Users\mire\Documents\MRH data\Forskning\FSharpPrograms\CompilerExperiments\GuardedCommandsVersion2\GuardedCommands\GuardedCommands\obj\Debug\GuardedCommands.dll
+C:\Users\mire\Documents\MRH data\Forskning\FSharpPrograms\CompilerExperiments\GuardedCommandsVersion2\GuardedCommands\GuardedCommands\obj\Debug\GuardedCommands.pdb
+C:\Users\mire\Documents\MRH data\Forskning\FSharpPrograms\CompilerExperiments\GuardedCommandsVersion2\GuardedCommands\GuardedCommands\bin\Debug\GuardedCommands.dll
+C:\Users\mire\Documents\MRH data\Forskning\FSharpPrograms\CompilerExperiments\GuardedCommandsVersion2\GuardedCommands\GuardedCommands\bin\Debug\GuardedCommands.pdb
+C:\Users\mire\Documents\MRH data\Forskning\FSharpPrograms\CompilerExperiments\GuardedCommandsVersion2\GuardedCommands\GuardedCommands\bin\Debug\FSharp.Core.dll
+C:\Users\mire\Documents\MRH data\Forskning\FSharpPrograms\CompilerExperiments\GuardedCommandsVersion2\GuardedCommands\GuardedCommands\bin\Debug\FSharp.PowerPack.dll
+C:\Users\mire\Documents\MRH data\Forskning\FSharpPrograms\CompilerExperiments\GuardedCommandsVersion2\GuardedCommands\GuardedCommands\bin\Debug\FSharp.PowerPack.pdb
+C:\Users\mire\Documents\MRH data\Forskning\FSharpPrograms\CompilerExperiments\GuardedCommandsVersion2\GuardedCommands\GuardedCommands\bin\Debug\FSharp.PowerPack.xml
+C:\Users\mire\Documents\MRH data\Forskning\FSharpPrograms\CompilerExperiments\GuardedCommandsVersion2\GuardedCommands\GuardedCommands\bin\Debug\FSharp.Core.xml
+C:\Users\mire\Documents\MRH data\Forskning\FSharpPrograms\CompilerExperiments\GuardedCommandsVersion2\GuardedCommands\GuardedCommands\obj\Debug\GuardedCommands.fsprojResolveAssemblyReference.cache
+C:\Users\mire\Documents\MRH data\Kurser\02257-16\GuardedCommandsVersion2\GuardedCommands\GuardedCommands\bin\Debug\GuardedCommands.XML
+C:\Users\mire\Documents\MRH data\Kurser\02257-16\GuardedCommandsVersion2\GuardedCommands\GuardedCommands\bin\Debug\GuardedCommands.dll
+C:\Users\mire\Documents\MRH data\Kurser\02257-16\GuardedCommandsVersion2\GuardedCommands\GuardedCommands\bin\Debug\GuardedCommands.pdb
+C:\Users\mire\Documents\MRH data\Kurser\02257-16\GuardedCommandsVersion2\GuardedCommands\GuardedCommands\bin\Debug\FSharp.PowerPack.pdb
+C:\Users\mire\Documents\MRH data\Kurser\02257-16\GuardedCommandsVersion2\GuardedCommands\GuardedCommands\bin\Debug\FSharp.PowerPack.xml
+C:\Users\mire\Documents\MRH data\Kurser\02257-16\GuardedCommandsVersion2\GuardedCommands\GuardedCommands\obj\Debug\GuardedCommands.fsprojResolveAssemblyReference.cache
+C:\Users\mire\Documents\MRH data\Kurser\02257-16\GuardedCommandsVersion2\GuardedCommands\GuardedCommands\obj\Debug\GuardedCommands.dll
+C:\Users\mire\Documents\MRH data\Kurser\02257-16\GuardedCommandsVersion2\GuardedCommands\GuardedCommands\obj\Debug\GuardedCommands.pdb
+C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\Handout\GuardedCommands\GuardedCommands\bin\Debug\GuardedCommands.XML
+C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\Handout\GuardedCommands\GuardedCommands\bin\Debug\GuardedCommands.dll
+C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\Handout\GuardedCommands\GuardedCommands\bin\Debug\GuardedCommands.pdb
+C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\Handout\GuardedCommands\GuardedCommands\bin\Debug\FSharp.PowerPack.pdb
+C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\Handout\GuardedCommands\GuardedCommands\bin\Debug\FSharp.PowerPack.xml
+C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\Handout\GuardedCommands\GuardedCommands\obj\Debug\GuardedCommands.fsprojResolveAssemblyReference.cache
+C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\Handout\GuardedCommands\GuardedCommands\obj\Debug\GuardedCommands.dll
+C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\Handout\GuardedCommands\GuardedCommands\obj\Debug\GuardedCommands.pdb
+C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\bin\Debug\GuardedCommands.XML
+C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\obj\Debug\GuardedCommands.fsprojResolveAssemblyReference.cache
+C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\obj\Debug\GuardedCommands.dll
+C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\obj\Debug\GuardedCommands.pdb
+C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\bin\Debug\GuardedCommands.dll.config
+C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\bin\Debug\GuardedCommands.dll
+C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\bin\Debug\GuardedCommands.pdb
+C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\bin\Debug\FSharp.Core.dll
+C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\bin\Debug\FsLexYacc.Runtime.dll
+C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\bin\Debug\FSharp.Core.xml
+C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\bin\Debug\FsLexYacc.Runtime.xml

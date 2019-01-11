@@ -75,8 +75,31 @@ module CodeGeneration =
 
        | Ass(acc,e)       -> CA vEnv fEnv acc @ CE vEnv fEnv e @ [STI; INCSP -1]
 
-       | Block([],stms) ->   CSs vEnv fEnv stms
+       | Block([],stms)   -> CSs vEnv fEnv stms
 
+     //  | Do (GC (gcl))    -> 
+        
+       | Alt (GC (gcl))   -> let labend = newLabel()
+                             List.fold (fun il (e, stms) ->
+                                let subend = newLabel()
+                                il @ CE vEnv fEnv e @ [IFZERO subend] @
+                                ( List.fold (fun il s ->
+                                        il @ CS vEnv fEnv s @ [GOTO labend] @ [Label subend] 
+                                    )[] stms
+                                ) @ [Label labend] 
+                             ) [] gcl
+                             
+       | Do (GC (gcl))   ->  let labelstart = newLabel()
+                             let labend = newLabel()
+                             [Label labelstart] @
+                             List.fold (fun il (e, stms) ->
+                                let subend = newLabel()
+                                il @ CE vEnv fEnv e @ [IFZERO subend] @
+                                ( List.fold (fun il s ->
+                                        il @ CS vEnv fEnv s 
+                                    )[] stms @ [GOTO labelstart] @ [Label subend]
+                                ) 
+                             ) [] gcl @ [Label labend]                    
        | _                -> failwith "CS: this statement is not supported yet"
 
    and CSs vEnv fEnv stms = List.collect (CS vEnv fEnv) stms 

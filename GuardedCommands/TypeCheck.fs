@@ -59,6 +59,8 @@ module TypeCheck =
                                          else failwith "illtyped assignment"                                
 
                          | Block([],stms) -> List.iter (tcS gtenv ltenv) stms
+                         | Do (g)         -> tcGC gtenv ltenv g
+                         | Alt (g)        -> tcGC gtenv ltenv g
                          | _              -> failwith "tcS: this statement is not supported yet"
 
    and tcGDec gtenv = function  
@@ -68,10 +70,15 @@ module TypeCheck =
    and tcGDecs gtenv = function
                        | dec::decs -> tcGDecs (tcGDec gtenv dec) decs
                        | _         -> gtenv
-
+                       
+   and tcGC gtenv ltenv = function 
+                        | GC ( gcl ) -> List.iter (fun (e, stms) ->
+                                                if (tcE gtenv ltenv e = BTyp)
+                                                then List.iter (tcS gtenv ltenv) stms 
+                                                else failwith "Illtyped GC expression"
+                                             ) gcl
+                        | _                         -> failwith "tcGC: this GC is not supported yet"
 
 /// tcP prog checks the well-typeness of a program prog
    and tcP(P(decs, stms)) = let gtenv = tcGDecs Map.empty decs
                             List.iter (tcS gtenv Map.empty) stms
-
-  

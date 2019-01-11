@@ -3,9 +3,9 @@
 
 // You must revise the following 3 pathes 
 
-#r @"C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\packages\FsLexYacc.Runtime.7.0.6\lib\portable-net45+netcore45+wpa81+wp8+MonoAndroid10+MonoTouch10\FsLexYacc.Runtime.dll";
-#r @"C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\bin\Debug\Machine.dll";
-#r @"C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\bin\Debug\VirtualMachine.dll";
+#r @"/Users/paludan/Downloads/GuardedCommands/packages/FsLexYacc.Runtime.7.0.6/lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid10+MonoTouch10/FsLexYacc.Runtime.dll";
+#r @"/Users/paludan/Downloads/GuardedCommands/GuardedCommands/bin/Debug/Machine.dll";
+#r @"/Users/paludan/Downloads/GuardedCommands/GuardedCommands/bin/Debug/VirtualMachine.dll";
 
 #load "AST.fs"
 #load "Parser.fs"
@@ -31,6 +31,11 @@ open VirtualMachine
 
 System.IO.Directory.SetCurrentDirectory __SOURCE_DIRECTORY__;;
 
+let ex4Tree = parseFromFile "Ex4.gc";;
+let _ = tcP ex4Tree;;
+let ex4Code = CP ex4Tree;;
+let _ = goTrace ex4Tree;;
+(*
 // The Ex0.gc example:
 
 
@@ -77,7 +82,7 @@ let pts = List.map parseFromFile ["Ex1.gc"; "Ex2.gc";"Ex3.gc"; "Ex4.gc"; "Ex5.gc
 // The parse tree for Ex3.gc
 List.item 2 pts ;;
 
-(*
+
 // Test of programs covered by the first task (Section 3.7):
 List.iter exec ["Ex1.gc"; "Ex2.gc";"Ex3.gc"; "Ex4.gc"; "Ex5.gc"; "Ex6.gc"; "Skip.gc"];;
 

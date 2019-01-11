@@ -3,11 +3,11 @@ module Parser
 #nowarn "64";; // turn off warnings that type variables used in production annotations are instantiated to concrete type
 open Microsoft.FSharp.Text.Lexing
 open Microsoft.FSharp.Text.Parsing.ParseHelpers
-# 1 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fsy"
+# 1 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fsy"
 
 open GuardedCommands.Frontend.AST
 
-# 10 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fs"
+# 10 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fs"
 // This type is the type of tokens accepted by the parser
 type token = 
   | HIGH
@@ -348,7 +348,7 @@ let _fsyacc_reductionSymbolCounts = [|1us; 1us; 2us; 5us; 3us; 1us; 1us; 1us; 3u
 let _fsyacc_productionToNonTerminalTable = [|0us; 1us; 2us; 3us; 3us; 4us; 4us; 5us; 6us; 7us; 7us; 8us; 8us; 9us; 10us; 10us; 10us; 10us; 10us; 10us; 10us; 11us; 11us; 12us; 12us; 13us; 13us; 14us; 14us; 15us; 15us; 15us; 15us; 15us; 15us; 15us; 15us; 15us; 15us; 15us; 15us; 15us; 15us; 15us; |]
 let _fsyacc_immediateActions = [|65535us; 49152us; 65535us; 49152us; 65535us; 16386us; 65535us; 65535us; 65535us; 65535us; 16387us; 65535us; 16388us; 16389us; 16390us; 16391us; 65535us; 65535us; 65535us; 16392us; 65535us; 65535us; 16396us; 16397us; 65535us; 65535us; 65535us; 65535us; 65535us; 16400us; 16401us; 65535us; 65535us; 16402us; 65535us; 65535us; 16403us; 65535us; 65535us; 16404us; 16406us; 65535us; 65535us; 16408us; 16410us; 65535us; 65535us; 65535us; 65535us; 16412us; 16413us; 16414us; 16415us; 65535us; 65535us; 16416us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; |]
 let _fsyacc_reductions ()  =    [| 
-# 351 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fs"
+# 351 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : Program)) in
             Microsoft.FSharp.Core.Operators.box
@@ -357,7 +357,7 @@ let _fsyacc_reductions ()  =    [|
                       raise (Microsoft.FSharp.Text.Parsing.Accept(Microsoft.FSharp.Core.Operators.box _1))
                    )
                  : '_startMain));
-# 360 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fs"
+# 360 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : Program)) in
             Microsoft.FSharp.Core.Operators.box
@@ -366,292 +366,292 @@ let _fsyacc_reductions ()  =    [|
                       raise (Microsoft.FSharp.Text.Parsing.Accept(Microsoft.FSharp.Core.Operators.box _1))
                    )
                  : '_startProg));
-# 369 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fs"
+# 369 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : Program)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 38 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fsy"
+# 38 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fsy"
                                                               _1 
                    )
-# 38 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fsy"
+# 38 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fsy"
                  : Program));
-# 380 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fs"
+# 380 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _2 = (let data = parseState.GetInput(2) in (Microsoft.FSharp.Core.Operators.unbox data : Dec list)) in
             let _4 = (let data = parseState.GetInput(4) in (Microsoft.FSharp.Core.Operators.unbox data : Stm list)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 41 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fsy"
+# 41 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fsy"
                                                               P(_2, _4) 
                    )
-# 41 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fsy"
+# 41 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fsy"
                  : Program));
-# 392 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fs"
+# 392 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _2 = (let data = parseState.GetInput(2) in (Microsoft.FSharp.Core.Operators.unbox data : Stm list)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 42 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fsy"
+# 42 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fsy"
                                                               P([], _2) 
                    )
-# 42 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fsy"
+# 42 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fsy"
                  : Program));
-# 403 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fs"
+# 403 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 45 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fsy"
+# 45 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fsy"
                                                              BTyp 
                    )
-# 45 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fsy"
+# 45 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fsy"
                  : Typ));
-# 413 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fs"
+# 413 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 46 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fsy"
+# 46 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fsy"
                                                              ITyp 
                    )
-# 46 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fsy"
+# 46 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fsy"
                  : Typ));
-# 423 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fs"
+# 423 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : Typ)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 49 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fsy"
+# 49 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fsy"
                                                              _1 
                    )
-# 49 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fsy"
+# 49 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fsy"
                  : Typ));
-# 434 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fs"
+# 434 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : string)) in
             let _3 = (let data = parseState.GetInput(3) in (Microsoft.FSharp.Core.Operators.unbox data : Typ)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 52 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fsy"
+# 52 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fsy"
                                                              VarDec(_3,_1) 
                    )
-# 52 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fsy"
+# 52 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fsy"
                  : Dec));
-# 446 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fs"
+# 446 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 55 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fsy"
+# 55 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fsy"
                                                              [] 
                    )
-# 55 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fsy"
+# 55 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fsy"
                  : Dec list));
-# 456 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fs"
+# 456 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : Dec list)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 56 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fsy"
+# 56 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fsy"
                                                              _1 
                    )
-# 56 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fsy"
+# 56 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fsy"
                  : Dec list));
-# 467 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fs"
+# 467 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : Dec)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 59 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fsy"
+# 59 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fsy"
                                                              [_1] 
                    )
-# 59 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fsy"
+# 59 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fsy"
                  : Dec list));
-# 478 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fs"
+# 478 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : Dec)) in
             let _3 = (let data = parseState.GetInput(3) in (Microsoft.FSharp.Core.Operators.unbox data : Dec list)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 60 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fsy"
+# 60 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fsy"
                                                              _1 :: _3 
                    )
-# 60 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fsy"
+# 60 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fsy"
                  : Dec list));
-# 490 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fs"
+# 490 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : string)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 63 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fsy"
+# 63 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fsy"
                                                              AVar _1 
                    )
-# 63 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fsy"
+# 63 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fsy"
                  : Access));
-# 501 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fs"
+# 501 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _2 = (let data = parseState.GetInput(2) in (Microsoft.FSharp.Core.Operators.unbox data : Exp)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 66 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fsy"
+# 66 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fsy"
                                                              PrintLn _2 
                    )
-# 66 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fsy"
+# 66 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fsy"
                  : Stm));
-# 512 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fs"
+# 512 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : Access)) in
             let _3 = (let data = parseState.GetInput(3) in (Microsoft.FSharp.Core.Operators.unbox data : Exp)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 67 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fsy"
+# 67 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fsy"
                                                              Ass(_1,_3)  
                    )
-# 67 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fsy"
+# 67 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fsy"
                  : Stm));
-# 524 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fs"
+# 524 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 68 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fsy"
+# 68 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fsy"
                                                              Do (GC []) 
                    )
-# 68 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fsy"
+# 68 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fsy"
                  : Stm));
-# 534 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fs"
+# 534 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 69 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fsy"
+# 69 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fsy"
                                                              Alt (GC []) 
                    )
-# 69 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fsy"
+# 69 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fsy"
                  : Stm));
-# 544 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fs"
+# 544 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _2 = (let data = parseState.GetInput(2) in (Microsoft.FSharp.Core.Operators.unbox data : Stm list)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 70 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fsy"
+# 70 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fsy"
                                                              Block([], _2) 
                    )
-# 70 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fsy"
+# 70 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fsy"
                  : Stm));
-# 555 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fs"
+# 555 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _2 = (let data = parseState.GetInput(2) in (Microsoft.FSharp.Core.Operators.unbox data : GuardedCommand)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 71 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fsy"
+# 71 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fsy"
                                                              Alt _2 
                    )
-# 71 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fsy"
+# 71 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fsy"
                  : Stm));
-# 566 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fs"
+# 566 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _2 = (let data = parseState.GetInput(2) in (Microsoft.FSharp.Core.Operators.unbox data : GuardedCommand)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 72 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fsy"
+# 72 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fsy"
                                                              Do _2  
                    )
-# 72 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fsy"
+# 72 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fsy"
                  : Stm));
-# 577 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fs"
+# 577 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 75 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fsy"
+# 75 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fsy"
                                                              [] 
                    )
-# 75 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fsy"
+# 75 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fsy"
                  : Stm list));
-# 587 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fs"
+# 587 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : Stm list)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 76 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fsy"
+# 76 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fsy"
                                                              _1 
                    )
-# 76 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fsy"
+# 76 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fsy"
                  : Stm list));
-# 598 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fs"
+# 598 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : Stm)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 79 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fsy"
+# 79 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fsy"
                                                              [_1] 
                    )
-# 79 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fsy"
+# 79 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fsy"
                  : Stm list));
-# 609 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fs"
+# 609 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : Stm)) in
             let _3 = (let data = parseState.GetInput(3) in (Microsoft.FSharp.Core.Operators.unbox data : Stm list)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 80 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fsy"
+# 80 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fsy"
                                                              _1 :: _3 
                    )
-# 80 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fsy"
+# 80 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fsy"
                  : Stm list));
-# 621 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fs"
+# 621 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 83 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fsy"
+# 83 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fsy"
                                                              GC [] 
                    )
-# 83 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fsy"
+# 83 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fsy"
                  : GuardedCommand));
-# 631 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fs"
+# 631 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : (Exp * Stm list) list)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 84 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fsy"
+# 84 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fsy"
                                                              GC _1 
                    )
-# 84 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fsy"
+# 84 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fsy"
                  : GuardedCommand));
-# 642 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fs"
+# 642 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : Exp)) in
             let _3 = (let data = parseState.GetInput(3) in (Microsoft.FSharp.Core.Operators.unbox data : Stm list)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 87 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fsy"
+# 87 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fsy"
                                                              [(_1,_3)]   
                    )
-# 87 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fsy"
+# 87 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fsy"
                  : (Exp * Stm list) list));
-# 654 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fs"
+# 654 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : Exp)) in
             let _3 = (let data = parseState.GetInput(3) in (Microsoft.FSharp.Core.Operators.unbox data : Stm list)) in
@@ -659,187 +659,187 @@ let _fsyacc_reductions ()  =    [|
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 88 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fsy"
+# 88 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fsy"
                                                          (_1,_3)::_5 
                    )
-# 88 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fsy"
+# 88 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fsy"
                  : (Exp * Stm list) list));
-# 667 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fs"
+# 667 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : Access)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 91 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fsy"
+# 91 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fsy"
                                                              Access _1 
                    )
-# 91 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fsy"
+# 91 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fsy"
                  : Exp));
-# 678 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fs"
+# 678 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : int)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 92 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fsy"
+# 92 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fsy"
                                                              N _1 
                    )
-# 92 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fsy"
+# 92 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fsy"
                  : Exp));
-# 689 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fs"
+# 689 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : bool)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 93 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fsy"
+# 93 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fsy"
                                                              B _1 
                    )
-# 93 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fsy"
+# 93 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fsy"
                  : Exp));
-# 700 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fs"
+# 700 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _2 = (let data = parseState.GetInput(2) in (Microsoft.FSharp.Core.Operators.unbox data : Exp)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 94 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fsy"
+# 94 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fsy"
                                                              _2 
                    )
-# 94 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fsy"
+# 94 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fsy"
                  : Exp));
-# 711 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fs"
+# 711 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _2 = (let data = parseState.GetInput(2) in (Microsoft.FSharp.Core.Operators.unbox data : Exp)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 95 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fsy"
+# 95 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fsy"
                                                              Apply("-", [_2])
                    )
-# 95 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fsy"
+# 95 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fsy"
                  : Exp));
-# 722 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fs"
+# 722 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _2 = (let data = parseState.GetInput(2) in (Microsoft.FSharp.Core.Operators.unbox data : Exp)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 96 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fsy"
+# 96 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fsy"
                                                              Apply("!", [_2])
                    )
-# 96 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fsy"
+# 96 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fsy"
                  : Exp));
-# 733 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fs"
+# 733 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : Exp)) in
             let _3 = (let data = parseState.GetInput(3) in (Microsoft.FSharp.Core.Operators.unbox data : Exp)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 97 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fsy"
+# 97 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fsy"
                                                              Apply("*", [_1; _3])
                    )
-# 97 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fsy"
+# 97 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fsy"
                  : Exp));
-# 745 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fs"
+# 745 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : Exp)) in
             let _3 = (let data = parseState.GetInput(3) in (Microsoft.FSharp.Core.Operators.unbox data : Exp)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 98 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fsy"
+# 98 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fsy"
                                                              Apply("+", [_1; _3])
                    )
-# 98 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fsy"
+# 98 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fsy"
                  : Exp));
-# 757 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fs"
+# 757 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : Exp)) in
             let _3 = (let data = parseState.GetInput(3) in (Microsoft.FSharp.Core.Operators.unbox data : Exp)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 99 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fsy"
+# 99 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fsy"
                                                              Apply("-", [_1; _3])
                    )
-# 99 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fsy"
+# 99 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fsy"
                  : Exp));
-# 769 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fs"
+# 769 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : Exp)) in
             let _3 = (let data = parseState.GetInput(3) in (Microsoft.FSharp.Core.Operators.unbox data : Exp)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 100 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fsy"
+# 100 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fsy"
                                                              Apply("&&", [_1; _3])
                    )
-# 100 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fsy"
+# 100 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fsy"
                  : Exp));
-# 781 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fs"
+# 781 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : Exp)) in
             let _3 = (let data = parseState.GetInput(3) in (Microsoft.FSharp.Core.Operators.unbox data : Exp)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 101 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fsy"
+# 101 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fsy"
                                                              Apply("=", [_1; _3])
                    )
-# 101 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fsy"
+# 101 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fsy"
                  : Exp));
-# 793 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fs"
+# 793 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : Exp)) in
             let _3 = (let data = parseState.GetInput(3) in (Microsoft.FSharp.Core.Operators.unbox data : Exp)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 102 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fsy"
+# 102 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fsy"
                                                              Apply("<=", [_1; _3])
                    )
-# 102 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fsy"
+# 102 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fsy"
                  : Exp));
-# 805 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fs"
+# 805 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : Exp)) in
             let _3 = (let data = parseState.GetInput(3) in (Microsoft.FSharp.Core.Operators.unbox data : Exp)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 103 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fsy"
+# 103 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fsy"
                                                              Apply(">", [_1; _3])
                    )
-# 103 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fsy"
+# 103 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fsy"
                  : Exp));
-# 817 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fs"
+# 817 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : Exp)) in
             let _3 = (let data = parseState.GetInput(3) in (Microsoft.FSharp.Core.Operators.unbox data : Exp)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 104 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fsy"
+# 104 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fsy"
                                                              Apply("<", [_1; _3])
                    )
-# 104 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fsy"
+# 104 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fsy"
                  : Exp));
-# 829 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fs"
+# 829 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : Exp)) in
             let _3 = (let data = parseState.GetInput(3) in (Microsoft.FSharp.Core.Operators.unbox data : Exp)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 105 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fsy"
+# 105 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fsy"
                                                              Apply("<>", [_1; _3])
                    )
-# 105 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fsy"
+# 105 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fsy"
                  : Exp));
 |]
-# 842 "C:\Users\mire\Documents\MRH data\Kurser\02257-18\Project 2\TEST\GuardedCommands\GuardedCommands\Parser.fs"
+# 842 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Parser.fs"
 let tables () : Microsoft.FSharp.Text.Parsing.Tables<_> = 
   { reductions= _fsyacc_reductions ();
     endOfInputTag = _fsyacc_endOfInputTag;

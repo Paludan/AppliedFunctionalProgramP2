@@ -61,3 +61,15 @@ C:/Users/mire/Documents/MRH data/Kurser/02257-18/Project 2/TEST/GuardedCommands/
 /Users/paludan/Downloads/GuardedCommands/GuardedCommands/bin/Debug/FSharp.Core.xml
 /Users/paludan/Downloads/GuardedCommands/GuardedCommands/bin/Debug/FsLexYacc.Runtime.xml
 /Users/paludan/Downloads/GuardedCommands/GuardedCommands/obj/Debug/GuardedCommands.fsproj.CopyComplete
+/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/bin/Debug/GuardedCommands.dll.config
+/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/bin/Debug/GuardedCommands.XML
+/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/bin/Debug/GuardedCommands.dll
+/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/bin/Debug/GuardedCommands.pdb
+/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/bin/Debug/FSharp.Core.dll
+/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/bin/Debug/FsLexYacc.Runtime.dll
+/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/bin/Debug/FSharp.Core.xml
+/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/bin/Debug/FsLexYacc.Runtime.xml
+/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/obj/Debug/GuardedCommands.fsprojAssemblyReference.cache
+/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/obj/Debug/GuardedCommands.fsproj.CopyComplete
+/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/obj/Debug/GuardedCommands.dll
+/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/obj/Debug/GuardedCommands.pdb

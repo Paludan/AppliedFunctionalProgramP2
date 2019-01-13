@@ -1,4 +1,4 @@
-# 1 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Lexer.fsl"
+# 1 "/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/Lexer.fsl"
  
 module Lexer
 open System
@@ -18,12 +18,14 @@ let keyword s =
     | "if"        -> IF 
     | "fi"        -> FI 
     | "do"        -> DO
+    | "function"  -> FUNC
+    | "return"    -> RET
     | "od"        -> OD     
     | "true"      -> BOOL(true) 
     | "false"     -> BOOL(false)
     | _           -> NAME s  
 
-# 26 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Lexer.fs"
+# 28 "/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/Lexer.fs"
 let trans : uint16[] array = 
     [| 
    (* State 0 *)
@@ -100,140 +102,140 @@ and tokenize  (lexbuf : Microsoft.FSharp.Text.Lexing.LexBuffer<_>) = _fslex_toke
 and _fslex_tokenize  _fslex_state lexbuf =
   match _fslex_tables.Interpret(_fslex_state,lexbuf) with
   | 0 -> ( 
-# 39 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Lexer.fsl"
+# 41 "/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/Lexer.fsl"
                                  tokenize lexbuf 
-# 105 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Lexer.fs"
+# 107 "/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/Lexer.fs"
           )
   | 1 -> ( 
-# 40 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Lexer.fsl"
+# 42 "/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/Lexer.fsl"
                                  lexbuf.EndPos <- lexbuf.EndPos.NextLine; tokenize lexbuf 
-# 110 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Lexer.fs"
+# 112 "/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/Lexer.fs"
           )
   | 2 -> ( 
-# 41 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Lexer.fsl"
+# 43 "/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/Lexer.fsl"
                                  INT<| Int32.Parse(Encoding.UTF8.GetString(lexbuf.Lexeme)) 
-# 115 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Lexer.fs"
+# 117 "/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/Lexer.fs"
           )
   | 3 -> ( 
-# 42 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Lexer.fsl"
+# 44 "/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/Lexer.fsl"
                                  LP  
-# 120 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Lexer.fs"
+# 122 "/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/Lexer.fs"
           )
   | 4 -> ( 
-# 43 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Lexer.fsl"
+# 45 "/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/Lexer.fsl"
                                  RP  
-# 125 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Lexer.fs"
+# 127 "/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/Lexer.fs"
           )
   | 5 -> ( 
-# 44 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Lexer.fsl"
+# 46 "/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/Lexer.fsl"
                                  LSP 
-# 130 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Lexer.fs"
+# 132 "/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/Lexer.fs"
           )
   | 6 -> ( 
-# 45 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Lexer.fsl"
+# 47 "/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/Lexer.fsl"
                                  RSP 
-# 135 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Lexer.fs"
+# 137 "/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/Lexer.fs"
           )
   | 7 -> ( 
-# 46 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Lexer.fsl"
+# 48 "/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/Lexer.fsl"
                                  LCP 
-# 140 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Lexer.fs"
+# 142 "/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/Lexer.fs"
           )
   | 8 -> ( 
-# 47 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Lexer.fsl"
+# 49 "/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/Lexer.fsl"
                                  RCP 
-# 145 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Lexer.fs"
+# 147 "/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/Lexer.fs"
           )
   | 9 -> ( 
-# 48 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Lexer.fsl"
+# 50 "/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/Lexer.fsl"
                                  COMMA 
-# 150 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Lexer.fs"
+# 152 "/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/Lexer.fs"
           )
   | 10 -> ( 
-# 49 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Lexer.fsl"
+# 51 "/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/Lexer.fsl"
                                  SEMI  
-# 155 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Lexer.fs"
+# 157 "/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/Lexer.fs"
           )
   | 11 -> ( 
-# 50 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Lexer.fsl"
+# 52 "/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/Lexer.fsl"
                                  COLON 
-# 160 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Lexer.fs"
+# 162 "/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/Lexer.fs"
           )
   | 12 -> ( 
-# 51 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Lexer.fsl"
+# 53 "/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/Lexer.fsl"
                                  BAR 
-# 165 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Lexer.fs"
+# 167 "/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/Lexer.fs"
           )
   | 13 -> ( 
-# 52 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Lexer.fsl"
+# 54 "/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/Lexer.fsl"
                                  TO 
-# 170 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Lexer.fs"
+# 172 "/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/Lexer.fs"
           )
   | 14 -> ( 
-# 53 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Lexer.fsl"
+# 55 "/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/Lexer.fsl"
                                  ASG   
-# 175 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Lexer.fs"
+# 177 "/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/Lexer.fs"
           )
   | 15 -> ( 
-# 54 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Lexer.fsl"
+# 56 "/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/Lexer.fsl"
                                  NEG 
-# 180 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Lexer.fs"
+# 182 "/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/Lexer.fs"
           )
   | 16 -> ( 
-# 55 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Lexer.fsl"
+# 57 "/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/Lexer.fsl"
                                  AND 
-# 185 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Lexer.fs"
+# 187 "/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/Lexer.fs"
           )
   | 17 -> ( 
-# 56 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Lexer.fsl"
+# 58 "/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/Lexer.fsl"
                                  NEQ 
-# 190 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Lexer.fs"
+# 192 "/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/Lexer.fs"
           )
   | 18 -> ( 
-# 57 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Lexer.fsl"
+# 59 "/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/Lexer.fsl"
                                  LT 
-# 195 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Lexer.fs"
+# 197 "/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/Lexer.fs"
           )
   | 19 -> ( 
-# 58 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Lexer.fsl"
+# 60 "/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/Lexer.fsl"
                                  GT 
-# 200 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Lexer.fs"
+# 202 "/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/Lexer.fs"
           )
   | 20 -> ( 
-# 59 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Lexer.fsl"
+# 61 "/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/Lexer.fsl"
                                  LE 
-# 205 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Lexer.fs"
+# 207 "/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/Lexer.fs"
           )
   | 21 -> ( 
-# 60 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Lexer.fsl"
+# 62 "/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/Lexer.fsl"
                                  TIMES 
-# 210 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Lexer.fs"
+# 212 "/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/Lexer.fs"
           )
   | 22 -> ( 
-# 61 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Lexer.fsl"
+# 63 "/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/Lexer.fsl"
                                  MINUS 
-# 215 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Lexer.fs"
+# 217 "/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/Lexer.fs"
           )
   | 23 -> ( 
-# 62 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Lexer.fsl"
+# 64 "/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/Lexer.fsl"
                                  EQ 
-# 220 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Lexer.fs"
+# 222 "/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/Lexer.fs"
           )
   | 24 -> ( 
-# 63 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Lexer.fsl"
+# 65 "/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/Lexer.fsl"
                                  PLUS 
-# 225 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Lexer.fs"
+# 227 "/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/Lexer.fs"
           )
   | 25 -> ( 
-# 64 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Lexer.fsl"
+# 66 "/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/Lexer.fsl"
                                  keyword(Encoding.UTF8.GetString(lexbuf.Lexeme)) 
-# 230 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Lexer.fs"
+# 232 "/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/Lexer.fs"
           )
   | 26 -> ( 
-# 65 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Lexer.fsl"
+# 67 "/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/Lexer.fsl"
                                  EOF 
-# 235 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Lexer.fs"
+# 237 "/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/Lexer.fs"
           )
   | _ -> failwith "tokenize"
 
-# 3000000 "/Users/paludan/Downloads/GuardedCommands/GuardedCommands/Lexer.fs"
+# 3000000 "/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/Lexer.fs"

@@ -31,10 +31,10 @@ open VirtualMachine
 
 System.IO.Directory.SetCurrentDirectory __SOURCE_DIRECTORY__;;
 
-let ex4Tree = parseFromFile "Ex4.gc";;
-let _ = tcP ex4Tree;;
-let ex4Code = CP ex4Tree;;
-let _ = goTrace ex4Tree;;
+let funcTree = parseFromFile "Ex7.gc";;
+let _ = tcP funcTree;;
+let funcCode = CP funcTree;;
+let _ = goTrace funcTree;;
 (*
 // The Ex0.gc example:
 

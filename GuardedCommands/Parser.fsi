@@ -7,6 +7,7 @@ type token =
   | ASG
   | SKIP
   | ABORT
+  | FUNC
   | NEG
   | PLUS
   | MINUS
@@ -28,6 +29,7 @@ type token =
   | OD
   | BEGIN
   | END
+  | RET
   | LP
   | LCP
   | LSP
@@ -36,6 +38,7 @@ type token =
   | RSP
   | ITYP
   | BTYP
+  | FTYP
   | NAME of (string)
   | STRING of (string)
   | BOOL of (bool)
@@ -47,6 +50,7 @@ type tokenId =
     | TOKEN_ASG
     | TOKEN_SKIP
     | TOKEN_ABORT
+    | TOKEN_FUNC
     | TOKEN_NEG
     | TOKEN_PLUS
     | TOKEN_MINUS
@@ -68,6 +72,7 @@ type tokenId =
     | TOKEN_OD
     | TOKEN_BEGIN
     | TOKEN_END
+    | TOKEN_RET
     | TOKEN_LP
     | TOKEN_LCP
     | TOKEN_LSP
@@ -76,6 +81,7 @@ type tokenId =
     | TOKEN_RSP
     | TOKEN_ITYP
     | TOKEN_BTYP
+    | TOKEN_FTYP
     | TOKEN_NAME
     | TOKEN_STRING
     | TOKEN_BOOL

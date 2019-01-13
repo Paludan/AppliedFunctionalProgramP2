@@ -1,0 +1,4 @@
+GuardedCommands/bin
+GuardedCommands/obj
+.idea/
+GuardedCommands/Script.fsx

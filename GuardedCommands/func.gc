@@ -1,3 +1,10 @@
 begin
-    function f(x: int, y: int): int = { print x; return x+1 };
+    function f(x: int, y: int): int = 
+    { 
+        function g(k: int): int =
+        {
+            return k-1
+        };
+        print x; return x+1 
+    };
 end

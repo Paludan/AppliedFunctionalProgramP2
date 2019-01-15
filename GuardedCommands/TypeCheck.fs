@@ -77,12 +77,13 @@ module TypeCheck =
                                          then ()
                                          else failwith "illtyped assignment"                                
                          |  Return(expo) -> match Map.find "function" ltenv with
-                                                    |FTyp (tpyl, topt) ->   let typeo = match expo with 
-                                                                                    | Some t -> Some (tcE gtenv ltenv t)
-                                                                                    | None -> None
-                                                                            if (typeo = topt)
-                                                                            then ()
-                                                                            else failwith ("Return type is not correct")
+                                                    |FTyp (tpyl, topt) -> let typeo = 
+                                                                              match expo with 
+                                                                              | Some t -> Some (tcE gtenv ltenv t)
+                                                                              | None -> None
+                                                                          if (typeo = topt)
+                                                                          then ()
+                                                                          else failwith ("Return type is not correct")
                                                     | _  -> failwith ("It's not a function")
                                             
                          | Block([],stms) -> List.iter (tcS gtenv ltenv) stms
@@ -133,7 +134,6 @@ module TypeCheck =
                                                 then List.iter (tcS gtenv ltenv) stms 
                                                 else failwith "Illtyped GC expression"
                                              ) gcl
-                        | _                         -> failwith "tcGC: this GC is not supported yet"
     
 /// tcP prog checks the well-typeness of a program prog
    and tcP(P(decs, stms)) = let gtenv = tcGDecs Map.empty decs

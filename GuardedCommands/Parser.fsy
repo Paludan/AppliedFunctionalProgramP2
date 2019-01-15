@@ -29,8 +29,8 @@ open GuardedCommands.Frontend.AST
 %type <Stm list> StmList StmL
 %type <Stm> Stm
 %type <Typ> BasicTyp Typ
-%type <Dec> Dec
-%type <Dec list> DecL DecList
+%type <Dec> Dec DecVar
+%type <Dec list> DecL DecList DecVarL DecVarList
 %type <Program> Main Prog
 %%
 
@@ -49,7 +49,8 @@ Typ:
     BasicTyp                          { $1 }
 
 Dec: 
-    NAME COLON Typ                    { VarDec($3,$1) }
+    NAME COLON Typ                    { VarDec($3,$1) }	
+    | FUNC NAME LP DecL RP  EQ Stm { FunDec (None, $2, $4, $7) }
     | FUNC NAME LP DecL RP COLON BasicTyp EQ Stm { FunDec (Some $7, $2, $4, $9) }
 
 DecL: 
@@ -60,6 +61,17 @@ DecList:
    | Dec                              { [$1] }
    | Dec COMMA DecList                { $1 :: $3 }
 
+DecVar: 
+    NAME COLON Typ                    { VarDec($3,$1) }	
+
+DecVarL:
+                                         { [] }
+   | DecVarList                          { $1 }
+
+DecVarList: 
+   | DecVar                              { [$1] }
+   | DecVar COMMA DecVarList             { $1 :: $3 }
+
 Access:
     NAME                              { AVar $1 }
       
@@ -69,7 +81,8 @@ Stm:
   | SKIP                              { Do (GC []) }
   | RET Exp                           { Return (Some $2) }
   | ABORT                             { Alt (GC []) } 
-  | LCP StmL  RCP                     { Block([], $2) } 
+  | LCP DecVarList SEMI StmL RCP      { Block ($2,$4) }
+  | LCP StmL RCP                      { Block ([], $2) }
   | IF GuardedCommand FI              { Alt $2 }
   | DO GuardedCommand OD              { Do $2  }
 

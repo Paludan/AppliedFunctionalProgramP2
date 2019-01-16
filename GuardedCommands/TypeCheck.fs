@@ -54,7 +54,19 @@ module TypeCheck =
    
                                         //failwith "type check: functions not supported yet"
  
-   and tcNaryProcedure gtenv ltenv f es = failwith "type check: procedures not supported yet"
+   and tcNaryProcedure gtenv ltenv f es = let ftype = if (Map.containsKey f gtenv)
+                                                      then Map.find f gtenv
+                                                      else failwith ("no declaration for procedure: " + f)
+                                          match ftype with 
+                                                | FTyp (tl, typeo) -> if (List.length tl = List.length es)                  
+                                                                      then if(List.fold(fun tces (a,b) -> tces && (checkType gtenv ltenv a b))  true (List.zip tl es))
+                                                                           then match typeo with 
+                                                                                    | None -> ()
+                                                                                    | Some _ -> failwith ("Wrong return type for procedure " + f)
+                                                                           else failwith ("Parameter types can't be matched. Can't call procedure " + f)
+                                                                      else failwith ("Because of different parameter number. Can't call procedure " + f)
+                                                | _                -> failwith (f + "is not a procedure")
+                                          //failwith "type check: procedures not supported yet"
    
    and checkType gtenv ltenv typ e = 
         match typ with
@@ -62,7 +74,7 @@ module TypeCheck =
                                     | None -> match tcE gtenv ltenv e with
                                                 | ATyp (t1, _ ) -> t = t1
                                                 | _ -> false
-                                    | _ -> failwith "Can define the size of array when it is a parameter of a function"
+                                    | _ -> failwith "Can define the size of array when it is a parameter of a function or procedure"
             | _ -> typ = tcE gtenv ltenv e
 
 /// tcA gtenv ltenv e gives the type for access acc on the basis of type environments gtenv and ltenv
@@ -112,6 +124,7 @@ module TypeCheck =
                                                List.iter (tcS gtenv newltenv) stms
                          | Do (g)         -> tcGC gtenv ltenv g
                          | Alt (g)        -> tcGC gtenv ltenv g
+                         | Call (p, es)   -> tcNaryProcedure gtenv ltenv p es
                          | _              -> failwith "tcS: this statement is not supported yet"
 
     (*and tcSreturn gtenv ltenv topt  = function

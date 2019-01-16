@@ -232,36 +232,36 @@ let prodIdxToNonTerminal (prodIdx:int) =
     | 9 -> NONTERM_Dec 
     | 10 -> NONTERM_Dec 
     | 11 -> NONTERM_Dec 
-    | 12 -> NONTERM_DecL 
+    | 12 -> NONTERM_Dec 
     | 13 -> NONTERM_DecL 
-    | 14 -> NONTERM_DecList 
+    | 14 -> NONTERM_DecL 
     | 15 -> NONTERM_DecList 
-    | 16 -> NONTERM_DecVar 
-    | 17 -> NONTERM_DecVarL 
-    | 18 -> NONTERM_DecVarL 
-    | 19 -> NONTERM_DecVarList 
-    | 20 -> NONTERM_DecVarList 
-    | 21 -> NONTERM_Access 
-    | 22 -> NONTERM_Stm 
-    | 23 -> NONTERM_Stm 
-    | 24 -> NONTERM_Stm 
+    | 16 -> NONTERM_DecList 
+    | 17 -> NONTERM_DecVar 
+    | 18 -> NONTERM_DecVar 
+    | 19 -> NONTERM_DecVarL 
+    | 20 -> NONTERM_DecVarL 
+    | 21 -> NONTERM_DecVarList 
+    | 22 -> NONTERM_DecVarList 
+    | 23 -> NONTERM_Access 
+    | 24 -> NONTERM_Access 
     | 25 -> NONTERM_Stm 
     | 26 -> NONTERM_Stm 
     | 27 -> NONTERM_Stm 
     | 28 -> NONTERM_Stm 
     | 29 -> NONTERM_Stm 
     | 30 -> NONTERM_Stm 
-    | 31 -> NONTERM_StmL 
-    | 32 -> NONTERM_StmL 
-    | 33 -> NONTERM_StmList 
-    | 34 -> NONTERM_StmList 
-    | 35 -> NONTERM_GuardedCommand 
-    | 36 -> NONTERM_GuardedCommand 
-    | 37 -> NONTERM_GCList 
-    | 38 -> NONTERM_GCList 
-    | 39 -> NONTERM_Exp 
-    | 40 -> NONTERM_Exp 
-    | 41 -> NONTERM_Exp 
+    | 31 -> NONTERM_Stm 
+    | 32 -> NONTERM_Stm 
+    | 33 -> NONTERM_Stm 
+    | 34 -> NONTERM_StmL 
+    | 35 -> NONTERM_StmL 
+    | 36 -> NONTERM_StmList 
+    | 37 -> NONTERM_StmList 
+    | 38 -> NONTERM_GuardedCommand 
+    | 39 -> NONTERM_GuardedCommand 
+    | 40 -> NONTERM_GCList 
+    | 41 -> NONTERM_GCList 
     | 42 -> NONTERM_Exp 
     | 43 -> NONTERM_Exp 
     | 44 -> NONTERM_Exp 
@@ -275,10 +275,13 @@ let prodIdxToNonTerminal (prodIdx:int) =
     | 52 -> NONTERM_Exp 
     | 53 -> NONTERM_Exp 
     | 54 -> NONTERM_Exp 
-    | 55 -> NONTERM_ExpL 
-    | 56 -> NONTERM_ExpL 
-    | 57 -> NONTERM_ExpList 
-    | 58 -> NONTERM_ExpList 
+    | 55 -> NONTERM_Exp 
+    | 56 -> NONTERM_Exp 
+    | 57 -> NONTERM_Exp 
+    | 58 -> NONTERM_ExpL 
+    | 59 -> NONTERM_ExpL 
+    | 60 -> NONTERM_ExpList 
+    | 61 -> NONTERM_ExpList 
     | _ -> failwith "prodIdxToNonTerminal: bad production index"
 
 let _fsyacc_endOfInputTag = 44 
@@ -375,18 +378,18 @@ let _fsyacc_dataOfToken (t:token) =
   | STRING _fsyacc_x -> Microsoft.FSharp.Core.Operators.box _fsyacc_x 
   | BOOL _fsyacc_x -> Microsoft.FSharp.Core.Operators.box _fsyacc_x 
   | INT _fsyacc_x -> Microsoft.FSharp.Core.Operators.box _fsyacc_x 
-let _fsyacc_gotos = [| 0us; 65535us; 0us; 65535us; 1us; 65535us; 0us; 1us; 2us; 65535us; 0us; 4us; 2us; 3us; 3us; 65535us; 19us; 16us; 31us; 32us; 41us; 15us; 2us; 65535us; 19us; 20us; 41us; 42us; 3us; 65535us; 6us; 36us; 26us; 36us; 37us; 36us; 1us; 65535us; 26us; 27us; 3us; 65535us; 6us; 7us; 26us; 35us; 37us; 38us; 2us; 65535us; 44us; 43us; 57us; 43us; 0us; 65535us; 2us; 65535us; 44us; 45us; 57us; 58us; 28us; 65535us; 6us; 50us; 8us; 50us; 29us; 50us; 33us; 50us; 48us; 80us; 51us; 80us; 54us; 80us; 57us; 50us; 59us; 50us; 64us; 80us; 67us; 80us; 72us; 50us; 76us; 50us; 78us; 80us; 83us; 80us; 86us; 80us; 88us; 80us; 100us; 80us; 101us; 80us; 102us; 80us; 103us; 80us; 104us; 80us; 105us; 80us; 106us; 80us; 107us; 80us; 108us; 80us; 109us; 80us; 113us; 80us; 8us; 65535us; 6us; 71us; 8us; 71us; 29us; 30us; 33us; 34us; 57us; 71us; 59us; 71us; 72us; 71us; 76us; 71us; 5us; 65535us; 6us; 11us; 8us; 9us; 57us; 62us; 59us; 60us; 76us; 77us; 6us; 65535us; 6us; 70us; 8us; 70us; 57us; 70us; 59us; 70us; 72us; 73us; 76us; 70us; 2us; 65535us; 64us; 65us; 67us; 68us; 3us; 65535us; 64us; 74us; 67us; 74us; 78us; 79us; 20us; 65535us; 48us; 49us; 51us; 52us; 54us; 55us; 64us; 75us; 67us; 75us; 78us; 75us; 83us; 84us; 86us; 87us; 88us; 89us; 100us; 90us; 101us; 91us; 102us; 92us; 103us; 93us; 104us; 94us; 105us; 95us; 106us; 96us; 107us; 97us; 108us; 98us; 109us; 99us; 113us; 99us; 1us; 65535us; 109us; 110us; 2us; 65535us; 109us; 112us; 113us; 114us; |]
-let _fsyacc_sparseGotoTableRowOffsets = [|0us; 1us; 2us; 4us; 7us; 11us; 14us; 18us; 20us; 24us; 27us; 28us; 31us; 60us; 69us; 75us; 82us; 85us; 89us; 110us; 112us; |]
-let _fsyacc_stateToProdIdxsTableElements = [| 1us; 0us; 1us; 0us; 1us; 1us; 1us; 1us; 1us; 2us; 1us; 2us; 2us; 3us; 4us; 1us; 3us; 1us; 3us; 1us; 3us; 1us; 3us; 1us; 4us; 1us; 4us; 1us; 5us; 1us; 6us; 1us; 7us; 2us; 7us; 9us; 2us; 8us; 9us; 3us; 8us; 9us; 21us; 2us; 8us; 9us; 1us; 8us; 1us; 9us; 1us; 9us; 1us; 9us; 2us; 10us; 11us; 2us; 10us; 11us; 2us; 10us; 11us; 2us; 10us; 11us; 2us; 10us; 11us; 1us; 10us; 1us; 10us; 1us; 11us; 1us; 11us; 1us; 11us; 1us; 11us; 1us; 13us; 2us; 14us; 15us; 1us; 15us; 1us; 15us; 1us; 16us; 2us; 16us; 21us; 1us; 16us; 1us; 16us; 2us; 19us; 20us; 1us; 20us; 1us; 20us; 1us; 21us; 2us; 21us; 54us; 1us; 22us; 10us; 22us; 45us; 46us; 47us; 48us; 49us; 50us; 51us; 52us; 53us; 1us; 23us; 1us; 23us; 10us; 23us; 45us; 46us; 47us; 48us; 49us; 50us; 51us; 52us; 53us; 1us; 24us; 1us; 25us; 10us; 25us; 45us; 46us; 47us; 48us; 49us; 50us; 51us; 52us; 53us; 1us; 26us; 2us; 27us; 28us; 1us; 27us; 1us; 27us; 1us; 27us; 1us; 27us; 1us; 28us; 1us; 28us; 1us; 29us; 1us; 29us; 1us; 29us; 1us; 30us; 1us; 30us; 1us; 30us; 1us; 32us; 2us; 33us; 34us; 1us; 34us; 1us; 34us; 1us; 36us; 11us; 37us; 38us; 45us; 46us; 47us; 48us; 49us; 50us; 51us; 52us; 53us; 2us; 37us; 38us; 2us; 37us; 38us; 1us; 38us; 1us; 38us; 1us; 39us; 1us; 40us; 1us; 41us; 1us; 42us; 10us; 42us; 45us; 46us; 47us; 48us; 49us; 50us; 51us; 52us; 53us; 1us; 42us; 1us; 43us; 10us; 43us; 45us; 46us; 47us; 48us; 49us; 50us; 51us; 52us; 53us; 1us; 44us; 10us; 44us; 45us; 46us; 47us; 48us; 49us; 50us; 51us; 52us; 53us; 10us; 45us; 45us; 46us; 47us; 48us; 49us; 50us; 51us; 52us; 53us; 10us; 45us; 46us; 46us; 47us; 48us; 49us; 50us; 51us; 52us; 53us; 10us; 45us; 46us; 47us; 47us; 48us; 49us; 50us; 51us; 52us; 53us; 10us; 45us; 46us; 47us; 48us; 48us; 49us; 50us; 51us; 52us; 53us; 10us; 45us; 46us; 47us; 48us; 49us; 49us; 50us; 51us; 52us; 53us; 10us; 45us; 46us; 47us; 48us; 49us; 50us; 50us; 51us; 52us; 53us; 10us; 45us; 46us; 47us; 48us; 49us; 50us; 51us; 51us; 52us; 53us; 10us; 45us; 46us; 47us; 48us; 49us; 50us; 51us; 52us; 52us; 53us; 10us; 45us; 46us; 47us; 48us; 49us; 50us; 51us; 52us; 53us; 53us; 11us; 45us; 46us; 47us; 48us; 49us; 50us; 51us; 52us; 53us; 57us; 58us; 1us; 45us; 1us; 46us; 1us; 47us; 1us; 48us; 1us; 49us; 1us; 50us; 1us; 51us; 1us; 52us; 1us; 53us; 1us; 54us; 1us; 54us; 1us; 54us; 1us; 56us; 1us; 58us; 1us; 58us; |]
-let _fsyacc_stateToProdIdxsTableRowOffsets = [|0us; 2us; 4us; 6us; 8us; 10us; 12us; 15us; 17us; 19us; 21us; 23us; 25us; 27us; 29us; 31us; 33us; 36us; 39us; 43us; 46us; 48us; 50us; 52us; 54us; 57us; 60us; 63us; 66us; 69us; 71us; 73us; 75us; 77us; 79us; 81us; 83us; 86us; 88us; 90us; 92us; 95us; 97us; 99us; 102us; 104us; 106us; 108us; 111us; 113us; 124us; 126us; 128us; 139us; 141us; 143us; 154us; 156us; 159us; 161us; 163us; 165us; 167us; 169us; 171us; 173us; 175us; 177us; 179us; 181us; 183us; 185us; 188us; 190us; 192us; 194us; 206us; 209us; 212us; 214us; 216us; 218us; 220us; 222us; 224us; 235us; 237us; 239us; 250us; 252us; 263us; 274us; 285us; 296us; 307us; 318us; 329us; 340us; 351us; 362us; 374us; 376us; 378us; 380us; 382us; 384us; 386us; 388us; 390us; 392us; 394us; 396us; 398us; 400us; 402us; |]
-let _fsyacc_action_rows = 115
-let _fsyacc_actionTableElements = [|1us; 32768us; 26us; 6us; 0us; 49152us; 1us; 32768us; 26us; 6us; 0us; 49152us; 1us; 32768us; 1us; 5us; 0us; 16386us; 9us; 16415us; 2us; 48us; 4us; 53us; 5us; 56us; 6us; 24us; 22us; 64us; 24us; 67us; 28us; 54us; 30us; 57us; 38us; 18us; 1us; 32768us; 19us; 8us; 8us; 16415us; 2us; 48us; 4us; 53us; 5us; 56us; 22us; 64us; 24us; 67us; 28us; 54us; 30us; 57us; 38us; 46us; 1us; 32768us; 27us; 10us; 0us; 16387us; 1us; 32768us; 27us; 12us; 0us; 16388us; 0us; 16389us; 0us; 16390us; 0us; 16391us; 1us; 16391us; 31us; 21us; 1us; 32768us; 18us; 19us; 1us; 16405us; 18us; 19us; 2us; 32768us; 35us; 14us; 36us; 13us; 0us; 16392us; 1us; 32768us; 41us; 22us; 1us; 32768us; 34us; 23us; 0us; 16393us; 1us; 32768us; 38us; 25us; 1us; 32768us; 29us; 26us; 2us; 16396us; 6us; 24us; 38us; 17us; 1us; 32768us; 32us; 28us; 2us; 32768us; 12us; 29us; 18us; 31us; 8us; 32768us; 2us; 48us; 4us; 53us; 5us; 56us; 22us; 64us; 24us; 67us; 28us; 54us; 30us; 57us; 38us; 46us; 0us; 16394us; 2us; 32768us; 35us; 14us; 36us; 13us; 1us; 32768us; 12us; 33us; 8us; 32768us; 2us; 48us; 4us; 53us; 5us; 56us; 22us; 64us; 24us; 67us; 28us; 54us; 30us; 57us; 38us; 46us; 0us; 16395us; 0us; 16397us; 1us; 16398us; 17us; 37us; 2us; 32768us; 6us; 24us; 38us; 17us; 0us; 16399us; 1us; 32768us; 18us; 41us; 1us; 16405us; 18us; 41us; 2us; 32768us; 35us; 14us; 36us; 13us; 0us; 16400us; 1us; 16403us; 17us; 44us; 1us; 32768us; 38us; 39us; 0us; 16404us; 0us; 16405us; 1us; 16405us; 29us; 109us; 6us; 32768us; 7us; 88us; 9us; 86us; 29us; 83us; 38us; 47us; 40us; 82us; 41us; 81us; 9us; 16406us; 8us; 101us; 9us; 102us; 10us; 100us; 11us; 103us; 12us; 104us; 13us; 105us; 14us; 107us; 15us; 106us; 16us; 108us; 1us; 32768us; 3us; 51us; 6us; 32768us; 7us; 88us; 9us; 86us; 29us; 83us; 38us; 47us; 40us; 82us; 41us; 81us; 9us; 16407us; 8us; 101us; 9us; 102us; 10us; 100us; 11us; 103us; 12us; 104us; 13us; 105us; 14us; 107us; 15us; 106us; 16us; 108us; 0us; 16408us; 6us; 32768us; 7us; 88us; 9us; 86us; 29us; 83us; 38us; 47us; 40us; 82us; 41us; 81us; 9us; 16409us; 8us; 101us; 9us; 102us; 10us; 100us; 11us; 103us; 12us; 104us; 13us; 105us; 14us; 107us; 15us; 106us; 16us; 108us; 0us; 16410us; 8us; 16415us; 2us; 48us; 4us; 53us; 5us; 56us; 22us; 64us; 24us; 67us; 28us; 54us; 30us; 57us; 38us; 40us; 1us; 32768us; 19us; 59us; 8us; 16415us; 2us; 48us; 4us; 53us; 5us; 56us; 22us; 64us; 24us; 67us; 28us; 54us; 30us; 57us; 38us; 46us; 1us; 32768us; 33us; 61us; 0us; 16411us; 1us; 32768us; 33us; 63us; 0us; 16412us; 6us; 16419us; 7us; 88us; 9us; 86us; 29us; 83us; 38us; 47us; 40us; 82us; 41us; 81us; 1us; 32768us; 23us; 66us; 0us; 16413us; 6us; 16419us; 7us; 88us; 9us; 86us; 29us; 83us; 38us; 47us; 40us; 82us; 41us; 81us; 1us; 32768us; 25us; 69us; 0us; 16414us; 0us; 16416us; 1us; 16417us; 19us; 72us; 8us; 32768us; 2us; 48us; 4us; 53us; 5us; 56us; 22us; 64us; 24us; 67us; 28us; 54us; 30us; 57us; 38us; 46us; 0us; 16418us; 0us; 16420us; 10us; 32768us; 8us; 101us; 9us; 102us; 10us; 100us; 11us; 103us; 12us; 104us; 13us; 105us; 14us; 107us; 15us; 106us; 16us; 108us; 21us; 76us; 8us; 16415us; 2us; 48us; 4us; 53us; 5us; 56us; 22us; 64us; 24us; 67us; 28us; 54us; 30us; 57us; 38us; 46us; 1us; 16421us; 20us; 78us; 6us; 32768us; 7us; 88us; 9us; 86us; 29us; 83us; 38us; 47us; 40us; 82us; 41us; 81us; 0us; 16422us; 0us; 16423us; 0us; 16424us; 0us; 16425us; 6us; 32768us; 7us; 88us; 9us; 86us; 29us; 83us; 38us; 47us; 40us; 82us; 41us; 81us; 10us; 32768us; 8us; 101us; 9us; 102us; 10us; 100us; 11us; 103us; 12us; 104us; 13us; 105us; 14us; 107us; 15us; 106us; 16us; 108us; 32us; 85us; 0us; 16426us; 6us; 32768us; 7us; 88us; 9us; 86us; 29us; 83us; 38us; 47us; 40us; 82us; 41us; 81us; 1us; 16427us; 10us; 100us; 6us; 32768us; 7us; 88us; 9us; 86us; 29us; 83us; 38us; 47us; 40us; 82us; 41us; 81us; 8us; 16428us; 8us; 101us; 9us; 102us; 10us; 100us; 12us; 104us; 13us; 105us; 14us; 107us; 15us; 106us; 16us; 108us; 0us; 16429us; 1us; 16430us; 10us; 100us; 1us; 16431us; 10us; 100us; 8us; 16432us; 8us; 101us; 9us; 102us; 10us; 100us; 12us; 104us; 13us; 105us; 14us; 107us; 15us; 106us; 16us; 108us; 3us; 16433us; 8us; 101us; 9us; 102us; 10us; 100us; 3us; 16434us; 8us; 101us; 9us; 102us; 10us; 100us; 3us; 16435us; 8us; 101us; 9us; 102us; 10us; 100us; 3us; 16436us; 8us; 101us; 9us; 102us; 10us; 100us; 3us; 16437us; 8us; 101us; 9us; 102us; 10us; 100us; 10us; 16441us; 8us; 101us; 9us; 102us; 10us; 100us; 11us; 103us; 12us; 104us; 13us; 105us; 14us; 107us; 15us; 106us; 16us; 108us; 17us; 113us; 6us; 32768us; 7us; 88us; 9us; 86us; 29us; 83us; 38us; 47us; 40us; 82us; 41us; 81us; 6us; 32768us; 7us; 88us; 9us; 86us; 29us; 83us; 38us; 47us; 40us; 82us; 41us; 81us; 6us; 32768us; 7us; 88us; 9us; 86us; 29us; 83us; 38us; 47us; 40us; 82us; 41us; 81us; 6us; 32768us; 7us; 88us; 9us; 86us; 29us; 83us; 38us; 47us; 40us; 82us; 41us; 81us; 6us; 32768us; 7us; 88us; 9us; 86us; 29us; 83us; 38us; 47us; 40us; 82us; 41us; 81us; 6us; 32768us; 7us; 88us; 9us; 86us; 29us; 83us; 38us; 47us; 40us; 82us; 41us; 81us; 6us; 32768us; 7us; 88us; 9us; 86us; 29us; 83us; 38us; 47us; 40us; 82us; 41us; 81us; 6us; 32768us; 7us; 88us; 9us; 86us; 29us; 83us; 38us; 47us; 40us; 82us; 41us; 81us; 6us; 32768us; 7us; 88us; 9us; 86us; 29us; 83us; 38us; 47us; 40us; 82us; 41us; 81us; 6us; 16439us; 7us; 88us; 9us; 86us; 29us; 83us; 38us; 47us; 40us; 82us; 41us; 81us; 1us; 32768us; 32us; 111us; 0us; 16438us; 0us; 16440us; 6us; 32768us; 7us; 88us; 9us; 86us; 29us; 83us; 38us; 47us; 40us; 82us; 41us; 81us; 0us; 16442us; |]
-let _fsyacc_actionTableRowOffsets = [|0us; 2us; 3us; 5us; 6us; 8us; 9us; 19us; 21us; 30us; 32us; 33us; 35us; 36us; 37us; 38us; 39us; 41us; 43us; 45us; 48us; 49us; 51us; 53us; 54us; 56us; 58us; 61us; 63us; 66us; 75us; 76us; 79us; 81us; 90us; 91us; 92us; 94us; 97us; 98us; 100us; 102us; 105us; 106us; 108us; 110us; 111us; 112us; 114us; 121us; 131us; 133us; 140us; 150us; 151us; 158us; 168us; 169us; 178us; 180us; 189us; 191us; 192us; 194us; 195us; 202us; 204us; 205us; 212us; 214us; 215us; 216us; 218us; 227us; 228us; 229us; 240us; 249us; 251us; 258us; 259us; 260us; 261us; 262us; 269us; 280us; 281us; 288us; 290us; 297us; 306us; 307us; 309us; 311us; 320us; 324us; 328us; 332us; 336us; 340us; 351us; 358us; 365us; 372us; 379us; 386us; 393us; 400us; 407us; 414us; 421us; 423us; 424us; 425us; 432us; |]
-let _fsyacc_reductionSymbolCounts = [|1us; 1us; 2us; 5us; 3us; 1us; 1us; 1us; 3us; 6us; 7us; 9us; 0us; 1us; 1us; 3us; 3us; 0us; 1us; 1us; 3us; 1us; 2us; 3us; 1us; 2us; 1us; 5us; 3us; 3us; 3us; 0us; 1us; 1us; 3us; 0us; 1us; 3us; 5us; 1us; 1us; 1us; 3us; 2us; 2us; 3us; 3us; 3us; 3us; 3us; 3us; 3us; 3us; 3us; 4us; 0us; 1us; 1us; 3us; |]
-let _fsyacc_productionToNonTerminalTable = [|0us; 1us; 2us; 3us; 3us; 4us; 4us; 5us; 6us; 6us; 6us; 6us; 7us; 7us; 8us; 8us; 9us; 10us; 10us; 11us; 11us; 12us; 13us; 13us; 13us; 13us; 13us; 13us; 13us; 13us; 13us; 14us; 14us; 15us; 15us; 16us; 16us; 17us; 17us; 18us; 18us; 18us; 18us; 18us; 18us; 18us; 18us; 18us; 18us; 18us; 18us; 18us; 18us; 18us; 18us; 19us; 19us; 20us; 20us; |]
-let _fsyacc_immediateActions = [|65535us; 49152us; 65535us; 49152us; 65535us; 16386us; 65535us; 65535us; 65535us; 65535us; 16387us; 65535us; 16388us; 16389us; 16390us; 16391us; 65535us; 65535us; 65535us; 65535us; 16392us; 65535us; 65535us; 16393us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 16394us; 65535us; 65535us; 65535us; 16395us; 16397us; 65535us; 65535us; 16399us; 65535us; 65535us; 65535us; 16400us; 65535us; 65535us; 16404us; 16405us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 16408us; 65535us; 65535us; 16410us; 65535us; 65535us; 65535us; 65535us; 16411us; 65535us; 16412us; 65535us; 65535us; 16413us; 65535us; 65535us; 16414us; 16416us; 65535us; 65535us; 16418us; 16420us; 65535us; 65535us; 65535us; 65535us; 16422us; 16423us; 16424us; 16425us; 65535us; 65535us; 16426us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 16438us; 16440us; 65535us; 16442us; |]
+let _fsyacc_gotos = [| 0us; 65535us; 0us; 65535us; 1us; 65535us; 0us; 1us; 2us; 65535us; 0us; 4us; 2us; 3us; 3us; 65535us; 18us; 15us; 31us; 32us; 41us; 15us; 2us; 65535us; 18us; 19us; 41us; 42us; 3us; 65535us; 6us; 36us; 26us; 36us; 37us; 36us; 1us; 65535us; 26us; 27us; 3us; 65535us; 6us; 7us; 26us; 35us; 37us; 38us; 2us; 65535us; 47us; 46us; 63us; 46us; 0us; 65535us; 2us; 65535us; 47us; 48us; 63us; 64us; 29us; 65535us; 6us; 56us; 8us; 56us; 29us; 56us; 33us; 56us; 51us; 86us; 54us; 86us; 57us; 86us; 60us; 86us; 63us; 56us; 65us; 56us; 70us; 86us; 73us; 86us; 78us; 56us; 82us; 56us; 84us; 86us; 89us; 86us; 92us; 86us; 94us; 86us; 106us; 86us; 107us; 86us; 108us; 86us; 109us; 86us; 110us; 86us; 111us; 86us; 112us; 86us; 113us; 86us; 114us; 86us; 115us; 86us; 119us; 86us; 8us; 65535us; 6us; 77us; 8us; 77us; 29us; 30us; 33us; 34us; 63us; 77us; 65us; 77us; 78us; 77us; 82us; 77us; 5us; 65535us; 6us; 11us; 8us; 9us; 63us; 68us; 65us; 66us; 82us; 83us; 6us; 65535us; 6us; 76us; 8us; 76us; 63us; 76us; 65us; 76us; 78us; 79us; 82us; 76us; 2us; 65535us; 70us; 71us; 73us; 74us; 3us; 65535us; 70us; 80us; 73us; 80us; 84us; 85us; 21us; 65535us; 51us; 52us; 54us; 55us; 57us; 58us; 60us; 61us; 70us; 81us; 73us; 81us; 84us; 81us; 89us; 90us; 92us; 93us; 94us; 95us; 106us; 96us; 107us; 97us; 108us; 98us; 109us; 99us; 110us; 100us; 111us; 101us; 112us; 102us; 113us; 103us; 114us; 104us; 115us; 105us; 119us; 105us; 1us; 65535us; 115us; 116us; 2us; 65535us; 115us; 118us; 119us; 120us; |]
+let _fsyacc_sparseGotoTableRowOffsets = [|0us; 1us; 2us; 4us; 7us; 11us; 14us; 18us; 20us; 24us; 27us; 28us; 31us; 61us; 70us; 76us; 83us; 86us; 90us; 112us; 114us; |]
+let _fsyacc_stateToProdIdxsTableElements = [| 1us; 0us; 1us; 0us; 1us; 1us; 1us; 1us; 1us; 2us; 1us; 2us; 2us; 3us; 4us; 1us; 3us; 1us; 3us; 1us; 3us; 1us; 3us; 1us; 4us; 1us; 4us; 1us; 5us; 1us; 6us; 1us; 7us; 3us; 8us; 9us; 10us; 5us; 8us; 9us; 10us; 23us; 24us; 3us; 8us; 9us; 10us; 3us; 8us; 9us; 10us; 2us; 9us; 10us; 1us; 9us; 1us; 10us; 1us; 10us; 2us; 11us; 12us; 2us; 11us; 12us; 2us; 11us; 12us; 2us; 11us; 12us; 2us; 11us; 12us; 1us; 11us; 1us; 11us; 1us; 12us; 1us; 12us; 1us; 12us; 1us; 12us; 1us; 14us; 2us; 15us; 16us; 1us; 16us; 1us; 16us; 2us; 17us; 18us; 4us; 17us; 18us; 23us; 24us; 2us; 17us; 18us; 2us; 17us; 18us; 1us; 18us; 1us; 18us; 1us; 18us; 2us; 21us; 22us; 1us; 22us; 1us; 22us; 2us; 23us; 24us; 3us; 23us; 24us; 57us; 1us; 24us; 10us; 24us; 48us; 49us; 50us; 51us; 52us; 53us; 54us; 55us; 56us; 1us; 24us; 1us; 25us; 10us; 25us; 48us; 49us; 50us; 51us; 52us; 53us; 54us; 55us; 56us; 1us; 26us; 1us; 26us; 10us; 26us; 48us; 49us; 50us; 51us; 52us; 53us; 54us; 55us; 56us; 1us; 27us; 1us; 28us; 10us; 28us; 48us; 49us; 50us; 51us; 52us; 53us; 54us; 55us; 56us; 1us; 29us; 2us; 30us; 31us; 1us; 30us; 1us; 30us; 1us; 30us; 1us; 30us; 1us; 31us; 1us; 31us; 1us; 32us; 1us; 32us; 1us; 32us; 1us; 33us; 1us; 33us; 1us; 33us; 1us; 35us; 2us; 36us; 37us; 1us; 37us; 1us; 37us; 1us; 39us; 11us; 40us; 41us; 48us; 49us; 50us; 51us; 52us; 53us; 54us; 55us; 56us; 2us; 40us; 41us; 2us; 40us; 41us; 1us; 41us; 1us; 41us; 1us; 42us; 1us; 43us; 1us; 44us; 1us; 45us; 10us; 45us; 48us; 49us; 50us; 51us; 52us; 53us; 54us; 55us; 56us; 1us; 45us; 1us; 46us; 10us; 46us; 48us; 49us; 50us; 51us; 52us; 53us; 54us; 55us; 56us; 1us; 47us; 10us; 47us; 48us; 49us; 50us; 51us; 52us; 53us; 54us; 55us; 56us; 10us; 48us; 48us; 49us; 50us; 51us; 52us; 53us; 54us; 55us; 56us; 10us; 48us; 49us; 49us; 50us; 51us; 52us; 53us; 54us; 55us; 56us; 10us; 48us; 49us; 50us; 50us; 51us; 52us; 53us; 54us; 55us; 56us; 10us; 48us; 49us; 50us; 51us; 51us; 52us; 53us; 54us; 55us; 56us; 10us; 48us; 49us; 50us; 51us; 52us; 52us; 53us; 54us; 55us; 56us; 10us; 48us; 49us; 50us; 51us; 52us; 53us; 53us; 54us; 55us; 56us; 10us; 48us; 49us; 50us; 51us; 52us; 53us; 54us; 54us; 55us; 56us; 10us; 48us; 49us; 50us; 51us; 52us; 53us; 54us; 55us; 55us; 56us; 10us; 48us; 49us; 50us; 51us; 52us; 53us; 54us; 55us; 56us; 56us; 11us; 48us; 49us; 50us; 51us; 52us; 53us; 54us; 55us; 56us; 60us; 61us; 1us; 48us; 1us; 49us; 1us; 50us; 1us; 51us; 1us; 52us; 1us; 53us; 1us; 54us; 1us; 55us; 1us; 56us; 1us; 57us; 1us; 57us; 1us; 57us; 1us; 59us; 1us; 61us; 1us; 61us; |]
+let _fsyacc_stateToProdIdxsTableRowOffsets = [|0us; 2us; 4us; 6us; 8us; 10us; 12us; 15us; 17us; 19us; 21us; 23us; 25us; 27us; 29us; 31us; 33us; 37us; 43us; 47us; 51us; 54us; 56us; 58us; 60us; 63us; 66us; 69us; 72us; 75us; 77us; 79us; 81us; 83us; 85us; 87us; 89us; 92us; 94us; 96us; 99us; 104us; 107us; 110us; 112us; 114us; 116us; 119us; 121us; 123us; 126us; 130us; 132us; 143us; 145us; 147us; 158us; 160us; 162us; 173us; 175us; 177us; 188us; 190us; 193us; 195us; 197us; 199us; 201us; 203us; 205us; 207us; 209us; 211us; 213us; 215us; 217us; 219us; 222us; 224us; 226us; 228us; 240us; 243us; 246us; 248us; 250us; 252us; 254us; 256us; 258us; 269us; 271us; 273us; 284us; 286us; 297us; 308us; 319us; 330us; 341us; 352us; 363us; 374us; 385us; 396us; 408us; 410us; 412us; 414us; 416us; 418us; 420us; 422us; 424us; 426us; 428us; 430us; 432us; 434us; 436us; |]
+let _fsyacc_action_rows = 121
+let _fsyacc_actionTableElements = [|1us; 32768us; 26us; 6us; 0us; 49152us; 1us; 32768us; 26us; 6us; 0us; 49152us; 1us; 32768us; 1us; 5us; 0us; 16386us; 9us; 16418us; 2us; 54us; 4us; 59us; 5us; 62us; 6us; 24us; 22us; 70us; 24us; 73us; 28us; 60us; 30us; 63us; 38us; 17us; 1us; 32768us; 19us; 8us; 8us; 16418us; 2us; 54us; 4us; 59us; 5us; 62us; 22us; 70us; 24us; 73us; 28us; 60us; 30us; 63us; 38us; 49us; 1us; 32768us; 27us; 10us; 0us; 16387us; 1us; 32768us; 27us; 12us; 0us; 16388us; 0us; 16389us; 0us; 16390us; 0us; 16391us; 1us; 32768us; 18us; 18us; 2us; 16407us; 18us; 18us; 31us; 51us; 2us; 32768us; 35us; 14us; 36us; 13us; 1us; 16392us; 31us; 20us; 2us; 32768us; 34us; 21us; 41us; 22us; 0us; 16393us; 1us; 32768us; 34us; 23us; 0us; 16394us; 1us; 32768us; 38us; 25us; 1us; 32768us; 29us; 26us; 2us; 16397us; 6us; 24us; 38us; 16us; 1us; 32768us; 32us; 28us; 2us; 32768us; 12us; 29us; 18us; 31us; 8us; 32768us; 2us; 54us; 4us; 59us; 5us; 62us; 22us; 70us; 24us; 73us; 28us; 60us; 30us; 63us; 38us; 49us; 0us; 16395us; 2us; 32768us; 35us; 14us; 36us; 13us; 1us; 32768us; 12us; 33us; 8us; 32768us; 2us; 54us; 4us; 59us; 5us; 62us; 22us; 70us; 24us; 73us; 28us; 60us; 30us; 63us; 38us; 49us; 0us; 16396us; 0us; 16398us; 1us; 16399us; 17us; 37us; 2us; 32768us; 6us; 24us; 38us; 16us; 0us; 16400us; 1us; 32768us; 18us; 41us; 2us; 16407us; 18us; 41us; 31us; 51us; 2us; 32768us; 35us; 14us; 36us; 13us; 1us; 16401us; 31us; 43us; 1us; 32768us; 41us; 44us; 1us; 32768us; 34us; 45us; 0us; 16402us; 1us; 16405us; 17us; 47us; 1us; 32768us; 38us; 39us; 0us; 16406us; 1us; 16407us; 31us; 51us; 2us; 16407us; 29us; 115us; 31us; 51us; 6us; 32768us; 7us; 94us; 9us; 92us; 29us; 89us; 38us; 50us; 40us; 88us; 41us; 87us; 10us; 32768us; 8us; 107us; 9us; 108us; 10us; 106us; 11us; 109us; 12us; 110us; 13us; 111us; 14us; 113us; 15us; 112us; 16us; 114us; 34us; 53us; 0us; 16408us; 6us; 32768us; 7us; 94us; 9us; 92us; 29us; 89us; 38us; 50us; 40us; 88us; 41us; 87us; 9us; 16409us; 8us; 107us; 9us; 108us; 10us; 106us; 11us; 109us; 12us; 110us; 13us; 111us; 14us; 113us; 15us; 112us; 16us; 114us; 1us; 32768us; 3us; 57us; 6us; 32768us; 7us; 94us; 9us; 92us; 29us; 89us; 38us; 50us; 40us; 88us; 41us; 87us; 9us; 16410us; 8us; 107us; 9us; 108us; 10us; 106us; 11us; 109us; 12us; 110us; 13us; 111us; 14us; 113us; 15us; 112us; 16us; 114us; 0us; 16411us; 6us; 32768us; 7us; 94us; 9us; 92us; 29us; 89us; 38us; 50us; 40us; 88us; 41us; 87us; 9us; 16412us; 8us; 107us; 9us; 108us; 10us; 106us; 11us; 109us; 12us; 110us; 13us; 111us; 14us; 113us; 15us; 112us; 16us; 114us; 0us; 16413us; 8us; 16418us; 2us; 54us; 4us; 59us; 5us; 62us; 22us; 70us; 24us; 73us; 28us; 60us; 30us; 63us; 38us; 40us; 1us; 32768us; 19us; 65us; 8us; 16418us; 2us; 54us; 4us; 59us; 5us; 62us; 22us; 70us; 24us; 73us; 28us; 60us; 30us; 63us; 38us; 49us; 1us; 32768us; 33us; 67us; 0us; 16414us; 1us; 32768us; 33us; 69us; 0us; 16415us; 6us; 16422us; 7us; 94us; 9us; 92us; 29us; 89us; 38us; 50us; 40us; 88us; 41us; 87us; 1us; 32768us; 23us; 72us; 0us; 16416us; 6us; 16422us; 7us; 94us; 9us; 92us; 29us; 89us; 38us; 50us; 40us; 88us; 41us; 87us; 1us; 32768us; 25us; 75us; 0us; 16417us; 0us; 16419us; 1us; 16420us; 19us; 78us; 8us; 32768us; 2us; 54us; 4us; 59us; 5us; 62us; 22us; 70us; 24us; 73us; 28us; 60us; 30us; 63us; 38us; 49us; 0us; 16421us; 0us; 16423us; 10us; 32768us; 8us; 107us; 9us; 108us; 10us; 106us; 11us; 109us; 12us; 110us; 13us; 111us; 14us; 113us; 15us; 112us; 16us; 114us; 21us; 82us; 8us; 16418us; 2us; 54us; 4us; 59us; 5us; 62us; 22us; 70us; 24us; 73us; 28us; 60us; 30us; 63us; 38us; 49us; 1us; 16424us; 20us; 84us; 6us; 32768us; 7us; 94us; 9us; 92us; 29us; 89us; 38us; 50us; 40us; 88us; 41us; 87us; 0us; 16425us; 0us; 16426us; 0us; 16427us; 0us; 16428us; 6us; 32768us; 7us; 94us; 9us; 92us; 29us; 89us; 38us; 50us; 40us; 88us; 41us; 87us; 10us; 32768us; 8us; 107us; 9us; 108us; 10us; 106us; 11us; 109us; 12us; 110us; 13us; 111us; 14us; 113us; 15us; 112us; 16us; 114us; 32us; 91us; 0us; 16429us; 6us; 32768us; 7us; 94us; 9us; 92us; 29us; 89us; 38us; 50us; 40us; 88us; 41us; 87us; 1us; 16430us; 10us; 106us; 6us; 32768us; 7us; 94us; 9us; 92us; 29us; 89us; 38us; 50us; 40us; 88us; 41us; 87us; 8us; 16431us; 8us; 107us; 9us; 108us; 10us; 106us; 12us; 110us; 13us; 111us; 14us; 113us; 15us; 112us; 16us; 114us; 0us; 16432us; 1us; 16433us; 10us; 106us; 1us; 16434us; 10us; 106us; 8us; 16435us; 8us; 107us; 9us; 108us; 10us; 106us; 12us; 110us; 13us; 111us; 14us; 113us; 15us; 112us; 16us; 114us; 3us; 16436us; 8us; 107us; 9us; 108us; 10us; 106us; 3us; 16437us; 8us; 107us; 9us; 108us; 10us; 106us; 3us; 16438us; 8us; 107us; 9us; 108us; 10us; 106us; 3us; 16439us; 8us; 107us; 9us; 108us; 10us; 106us; 3us; 16440us; 8us; 107us; 9us; 108us; 10us; 106us; 10us; 16444us; 8us; 107us; 9us; 108us; 10us; 106us; 11us; 109us; 12us; 110us; 13us; 111us; 14us; 113us; 15us; 112us; 16us; 114us; 17us; 119us; 6us; 32768us; 7us; 94us; 9us; 92us; 29us; 89us; 38us; 50us; 40us; 88us; 41us; 87us; 6us; 32768us; 7us; 94us; 9us; 92us; 29us; 89us; 38us; 50us; 40us; 88us; 41us; 87us; 6us; 32768us; 7us; 94us; 9us; 92us; 29us; 89us; 38us; 50us; 40us; 88us; 41us; 87us; 6us; 32768us; 7us; 94us; 9us; 92us; 29us; 89us; 38us; 50us; 40us; 88us; 41us; 87us; 6us; 32768us; 7us; 94us; 9us; 92us; 29us; 89us; 38us; 50us; 40us; 88us; 41us; 87us; 6us; 32768us; 7us; 94us; 9us; 92us; 29us; 89us; 38us; 50us; 40us; 88us; 41us; 87us; 6us; 32768us; 7us; 94us; 9us; 92us; 29us; 89us; 38us; 50us; 40us; 88us; 41us; 87us; 6us; 32768us; 7us; 94us; 9us; 92us; 29us; 89us; 38us; 50us; 40us; 88us; 41us; 87us; 6us; 32768us; 7us; 94us; 9us; 92us; 29us; 89us; 38us; 50us; 40us; 88us; 41us; 87us; 6us; 16442us; 7us; 94us; 9us; 92us; 29us; 89us; 38us; 50us; 40us; 88us; 41us; 87us; 1us; 32768us; 32us; 117us; 0us; 16441us; 0us; 16443us; 6us; 32768us; 7us; 94us; 9us; 92us; 29us; 89us; 38us; 50us; 40us; 88us; 41us; 87us; 0us; 16445us; |]
+let _fsyacc_actionTableRowOffsets = [|0us; 2us; 3us; 5us; 6us; 8us; 9us; 19us; 21us; 30us; 32us; 33us; 35us; 36us; 37us; 38us; 39us; 41us; 44us; 47us; 49us; 52us; 53us; 55us; 56us; 58us; 60us; 63us; 65us; 68us; 77us; 78us; 81us; 83us; 92us; 93us; 94us; 96us; 99us; 100us; 102us; 105us; 108us; 110us; 112us; 114us; 115us; 117us; 119us; 120us; 122us; 125us; 132us; 143us; 144us; 151us; 161us; 163us; 170us; 180us; 181us; 188us; 198us; 199us; 208us; 210us; 219us; 221us; 222us; 224us; 225us; 232us; 234us; 235us; 242us; 244us; 245us; 246us; 248us; 257us; 258us; 259us; 270us; 279us; 281us; 288us; 289us; 290us; 291us; 292us; 299us; 310us; 311us; 318us; 320us; 327us; 336us; 337us; 339us; 341us; 350us; 354us; 358us; 362us; 366us; 370us; 381us; 388us; 395us; 402us; 409us; 416us; 423us; 430us; 437us; 444us; 451us; 453us; 454us; 455us; 462us; |]
+let _fsyacc_reductionSymbolCounts = [|1us; 1us; 2us; 5us; 3us; 1us; 1us; 1us; 3us; 5us; 6us; 7us; 9us; 0us; 1us; 1us; 3us; 3us; 6us; 0us; 1us; 1us; 3us; 1us; 4us; 2us; 3us; 1us; 2us; 1us; 5us; 3us; 3us; 3us; 0us; 1us; 1us; 3us; 0us; 1us; 3us; 5us; 1us; 1us; 1us; 3us; 2us; 2us; 3us; 3us; 3us; 3us; 3us; 3us; 3us; 3us; 3us; 4us; 0us; 1us; 1us; 3us; |]
+let _fsyacc_productionToNonTerminalTable = [|0us; 1us; 2us; 3us; 3us; 4us; 4us; 5us; 6us; 6us; 6us; 6us; 6us; 7us; 7us; 8us; 8us; 9us; 9us; 10us; 10us; 11us; 11us; 12us; 12us; 13us; 13us; 13us; 13us; 13us; 13us; 13us; 13us; 13us; 14us; 14us; 15us; 15us; 16us; 16us; 17us; 17us; 18us; 18us; 18us; 18us; 18us; 18us; 18us; 18us; 18us; 18us; 18us; 18us; 18us; 18us; 18us; 18us; 19us; 19us; 20us; 20us; |]
+let _fsyacc_immediateActions = [|65535us; 49152us; 65535us; 49152us; 65535us; 16386us; 65535us; 65535us; 65535us; 65535us; 16387us; 65535us; 16388us; 16389us; 16390us; 16391us; 65535us; 65535us; 65535us; 65535us; 65535us; 16393us; 65535us; 16394us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 16395us; 65535us; 65535us; 65535us; 16396us; 16398us; 65535us; 65535us; 16400us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 16402us; 65535us; 65535us; 16406us; 65535us; 65535us; 65535us; 65535us; 16408us; 65535us; 65535us; 65535us; 65535us; 65535us; 16411us; 65535us; 65535us; 16413us; 65535us; 65535us; 65535us; 65535us; 16414us; 65535us; 16415us; 65535us; 65535us; 16416us; 65535us; 65535us; 16417us; 16419us; 65535us; 65535us; 16421us; 16423us; 65535us; 65535us; 65535us; 65535us; 16425us; 16426us; 16427us; 16428us; 65535us; 65535us; 16429us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 16441us; 16443us; 65535us; 16445us; |]
 let _fsyacc_reductions ()  =    [| 
-# 389 "Parser.fs"
+# 392 "Parser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : Program)) in
             Microsoft.FSharp.Core.Operators.box
@@ -395,7 +398,7 @@ let _fsyacc_reductions ()  =    [|
                       raise (Microsoft.FSharp.Text.Parsing.Accept(Microsoft.FSharp.Core.Operators.box _1))
                    )
                  : '_startMain));
-# 398 "Parser.fs"
+# 401 "Parser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : Program)) in
             Microsoft.FSharp.Core.Operators.box
@@ -404,7 +407,7 @@ let _fsyacc_reductions ()  =    [|
                       raise (Microsoft.FSharp.Text.Parsing.Accept(Microsoft.FSharp.Core.Operators.box _1))
                    )
                  : '_startProg));
-# 407 "Parser.fs"
+# 410 "Parser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : Program)) in
             Microsoft.FSharp.Core.Operators.box
@@ -415,7 +418,7 @@ let _fsyacc_reductions ()  =    [|
                    )
 # 39 "Parser.fsy"
                  : Program));
-# 418 "Parser.fs"
+# 421 "Parser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _2 = (let data = parseState.GetInput(2) in (Microsoft.FSharp.Core.Operators.unbox data : Dec list)) in
             let _4 = (let data = parseState.GetInput(4) in (Microsoft.FSharp.Core.Operators.unbox data : Stm list)) in
@@ -427,7 +430,7 @@ let _fsyacc_reductions ()  =    [|
                    )
 # 42 "Parser.fsy"
                  : Program));
-# 430 "Parser.fs"
+# 433 "Parser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _2 = (let data = parseState.GetInput(2) in (Microsoft.FSharp.Core.Operators.unbox data : Stm list)) in
             Microsoft.FSharp.Core.Operators.box
@@ -438,7 +441,7 @@ let _fsyacc_reductions ()  =    [|
                    )
 # 43 "Parser.fsy"
                  : Program));
-# 441 "Parser.fs"
+# 444 "Parser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             Microsoft.FSharp.Core.Operators.box
                 (
@@ -448,7 +451,7 @@ let _fsyacc_reductions ()  =    [|
                    )
 # 46 "Parser.fsy"
                  : Typ));
-# 451 "Parser.fs"
+# 454 "Parser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             Microsoft.FSharp.Core.Operators.box
                 (
@@ -458,7 +461,7 @@ let _fsyacc_reductions ()  =    [|
                    )
 # 47 "Parser.fsy"
                  : Typ));
-# 461 "Parser.fs"
+# 464 "Parser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : Typ)) in
             Microsoft.FSharp.Core.Operators.box
@@ -469,7 +472,7 @@ let _fsyacc_reductions ()  =    [|
                    )
 # 50 "Parser.fsy"
                  : Typ));
-# 472 "Parser.fs"
+# 475 "Parser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : string)) in
             let _3 = (let data = parseState.GetInput(3) in (Microsoft.FSharp.Core.Operators.unbox data : Typ)) in
@@ -481,7 +484,19 @@ let _fsyacc_reductions ()  =    [|
                    )
 # 53 "Parser.fsy"
                  : Dec));
-# 484 "Parser.fs"
+# 487 "Parser.fs"
+        (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
+            let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : string)) in
+            let _3 = (let data = parseState.GetInput(3) in (Microsoft.FSharp.Core.Operators.unbox data : Typ)) in
+            Microsoft.FSharp.Core.Operators.box
+                (
+                   (
+# 54 "Parser.fsy"
+                                                                           VarDec(ATyp(_3, None), _1) 
+                   )
+# 54 "Parser.fsy"
+                 : Dec));
+# 499 "Parser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : string)) in
             let _3 = (let data = parseState.GetInput(3) in (Microsoft.FSharp.Core.Operators.unbox data : Typ)) in
@@ -489,12 +504,12 @@ let _fsyacc_reductions ()  =    [|
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 54 "Parser.fsy"
-                                                                           VarDec(ATyp(_3, Some(_5)), _1) 
+# 55 "Parser.fsy"
+                                                                           VarDec(ATyp(_3, Some (_5)), _1) 
                    )
-# 54 "Parser.fsy"
+# 55 "Parser.fsy"
                  : Dec));
-# 497 "Parser.fs"
+# 512 "Parser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _2 = (let data = parseState.GetInput(2) in (Microsoft.FSharp.Core.Operators.unbox data : string)) in
             let _4 = (let data = parseState.GetInput(4) in (Microsoft.FSharp.Core.Operators.unbox data : Dec list)) in
@@ -502,12 +517,12 @@ let _fsyacc_reductions ()  =    [|
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 55 "Parser.fsy"
+# 56 "Parser.fsy"
                                                                            FunDec (None, _2, _4, _7) 
                    )
-# 55 "Parser.fsy"
+# 56 "Parser.fsy"
                  : Dec));
-# 510 "Parser.fs"
+# 525 "Parser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _2 = (let data = parseState.GetInput(2) in (Microsoft.FSharp.Core.Operators.unbox data : string)) in
             let _4 = (let data = parseState.GetInput(4) in (Microsoft.FSharp.Core.Operators.unbox data : Dec list)) in
@@ -516,299 +531,324 @@ let _fsyacc_reductions ()  =    [|
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 56 "Parser.fsy"
+# 57 "Parser.fsy"
                                                                            FunDec (Some _7, _2, _4, _9) 
                    )
-# 56 "Parser.fsy"
+# 57 "Parser.fsy"
                  : Dec));
-# 524 "Parser.fs"
+# 539 "Parser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 59 "Parser.fsy"
+# 60 "Parser.fsy"
                                                              [] 
                    )
-# 59 "Parser.fsy"
+# 60 "Parser.fsy"
                  : Dec list));
-# 534 "Parser.fs"
+# 549 "Parser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : Dec list)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 60 "Parser.fsy"
+# 61 "Parser.fsy"
                                                              _1 
                    )
-# 60 "Parser.fsy"
+# 61 "Parser.fsy"
                  : Dec list));
-# 545 "Parser.fs"
+# 560 "Parser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : Dec)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 63 "Parser.fsy"
+# 64 "Parser.fsy"
                                                              [_1] 
                    )
-# 63 "Parser.fsy"
+# 64 "Parser.fsy"
                  : Dec list));
-# 556 "Parser.fs"
+# 571 "Parser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : Dec)) in
             let _3 = (let data = parseState.GetInput(3) in (Microsoft.FSharp.Core.Operators.unbox data : Dec list)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 64 "Parser.fsy"
+# 65 "Parser.fsy"
                                                              _1 :: _3 
                    )
-# 64 "Parser.fsy"
+# 65 "Parser.fsy"
                  : Dec list));
-# 568 "Parser.fs"
+# 583 "Parser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : string)) in
             let _3 = (let data = parseState.GetInput(3) in (Microsoft.FSharp.Core.Operators.unbox data : Typ)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 67 "Parser.fsy"
-                                                             VarDec(_3,_1) 
+# 68 "Parser.fsy"
+                                                                  VarDec(_3,_1) 
                    )
-# 67 "Parser.fsy"
+# 68 "Parser.fsy"
                  : Dec));
-# 580 "Parser.fs"
+# 595 "Parser.fs"
+        (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
+            let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : string)) in
+            let _3 = (let data = parseState.GetInput(3) in (Microsoft.FSharp.Core.Operators.unbox data : Typ)) in
+            let _5 = (let data = parseState.GetInput(5) in (Microsoft.FSharp.Core.Operators.unbox data : int)) in
+            Microsoft.FSharp.Core.Operators.box
+                (
+                   (
+# 69 "Parser.fsy"
+                                                                  VarDec(ATyp(_3, Some (_5)), _1) 
+                   )
+# 69 "Parser.fsy"
+                 : Dec));
+# 608 "Parser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 70 "Parser.fsy"
+# 72 "Parser.fsy"
                                                                 [] 
                    )
-# 70 "Parser.fsy"
+# 72 "Parser.fsy"
                  : Dec list));
-# 590 "Parser.fs"
+# 618 "Parser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : Dec list)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 71 "Parser.fsy"
+# 73 "Parser.fsy"
                                                                 _1 
                    )
-# 71 "Parser.fsy"
+# 73 "Parser.fsy"
                  : Dec list));
-# 601 "Parser.fs"
+# 629 "Parser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : Dec)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 74 "Parser.fsy"
+# 76 "Parser.fsy"
                                                                 [_1] 
                    )
-# 74 "Parser.fsy"
+# 76 "Parser.fsy"
                  : Dec list));
-# 612 "Parser.fs"
+# 640 "Parser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : Dec)) in
             let _3 = (let data = parseState.GetInput(3) in (Microsoft.FSharp.Core.Operators.unbox data : Dec list)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 75 "Parser.fsy"
+# 77 "Parser.fsy"
                                                                 _1 :: _3 
                    )
-# 75 "Parser.fsy"
+# 77 "Parser.fsy"
                  : Dec list));
-# 624 "Parser.fs"
+# 652 "Parser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : string)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 78 "Parser.fsy"
-                                                             AVar _1 
+# 80 "Parser.fsy"
+                                                              AVar _1 
                    )
-# 78 "Parser.fsy"
+# 80 "Parser.fsy"
                  : Access));
-# 635 "Parser.fs"
+# 663 "Parser.fs"
+        (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
+            let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : string)) in
+            let _3 = (let data = parseState.GetInput(3) in (Microsoft.FSharp.Core.Operators.unbox data : Exp)) in
+            Microsoft.FSharp.Core.Operators.box
+                (
+                   (
+# 81 "Parser.fsy"
+                                                              AIndex (AVar _1, _3) 
+                   )
+# 81 "Parser.fsy"
+                 : Access));
+# 675 "Parser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _2 = (let data = parseState.GetInput(2) in (Microsoft.FSharp.Core.Operators.unbox data : Exp)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 81 "Parser.fsy"
+# 84 "Parser.fsy"
                                                              PrintLn _2 
                    )
-# 81 "Parser.fsy"
+# 84 "Parser.fsy"
                  : Stm));
-# 646 "Parser.fs"
+# 686 "Parser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : Access)) in
             let _3 = (let data = parseState.GetInput(3) in (Microsoft.FSharp.Core.Operators.unbox data : Exp)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 82 "Parser.fsy"
+# 85 "Parser.fsy"
                                                              Ass(_1,_3)  
                    )
-# 82 "Parser.fsy"
+# 85 "Parser.fsy"
                  : Stm));
-# 658 "Parser.fs"
+# 698 "Parser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 83 "Parser.fsy"
+# 86 "Parser.fsy"
                                                              Do (GC []) 
                    )
-# 83 "Parser.fsy"
+# 86 "Parser.fsy"
                  : Stm));
-# 668 "Parser.fs"
+# 708 "Parser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _2 = (let data = parseState.GetInput(2) in (Microsoft.FSharp.Core.Operators.unbox data : Exp)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 84 "Parser.fsy"
+# 87 "Parser.fsy"
                                                              Return (Some _2) 
                    )
-# 84 "Parser.fsy"
+# 87 "Parser.fsy"
                  : Stm));
-# 679 "Parser.fs"
+# 719 "Parser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 85 "Parser.fsy"
+# 88 "Parser.fsy"
                                                              Alt (GC []) 
                    )
-# 85 "Parser.fsy"
+# 88 "Parser.fsy"
                  : Stm));
-# 689 "Parser.fs"
+# 729 "Parser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _2 = (let data = parseState.GetInput(2) in (Microsoft.FSharp.Core.Operators.unbox data : Dec list)) in
             let _4 = (let data = parseState.GetInput(4) in (Microsoft.FSharp.Core.Operators.unbox data : Stm list)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 86 "Parser.fsy"
+# 89 "Parser.fsy"
                                                              Block (_2,_4) 
                    )
-# 86 "Parser.fsy"
+# 89 "Parser.fsy"
                  : Stm));
-# 701 "Parser.fs"
+# 741 "Parser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _2 = (let data = parseState.GetInput(2) in (Microsoft.FSharp.Core.Operators.unbox data : Stm list)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 87 "Parser.fsy"
+# 90 "Parser.fsy"
                                                              Block ([], _2) 
                    )
-# 87 "Parser.fsy"
+# 90 "Parser.fsy"
                  : Stm));
-# 712 "Parser.fs"
+# 752 "Parser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _2 = (let data = parseState.GetInput(2) in (Microsoft.FSharp.Core.Operators.unbox data : GuardedCommand)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 88 "Parser.fsy"
+# 91 "Parser.fsy"
                                                              Alt _2 
                    )
-# 88 "Parser.fsy"
+# 91 "Parser.fsy"
                  : Stm));
-# 723 "Parser.fs"
+# 763 "Parser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _2 = (let data = parseState.GetInput(2) in (Microsoft.FSharp.Core.Operators.unbox data : GuardedCommand)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 89 "Parser.fsy"
+# 92 "Parser.fsy"
                                                              Do _2  
                    )
-# 89 "Parser.fsy"
+# 92 "Parser.fsy"
                  : Stm));
-# 734 "Parser.fs"
+# 774 "Parser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 92 "Parser.fsy"
+# 95 "Parser.fsy"
                                                              [] 
                    )
-# 92 "Parser.fsy"
+# 95 "Parser.fsy"
                  : Stm list));
-# 744 "Parser.fs"
+# 784 "Parser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : Stm list)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 93 "Parser.fsy"
+# 96 "Parser.fsy"
                                                              _1 
                    )
-# 93 "Parser.fsy"
+# 96 "Parser.fsy"
                  : Stm list));
-# 755 "Parser.fs"
+# 795 "Parser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : Stm)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 96 "Parser.fsy"
+# 99 "Parser.fsy"
                                                              [_1] 
                    )
-# 96 "Parser.fsy"
+# 99 "Parser.fsy"
                  : Stm list));
-# 766 "Parser.fs"
+# 806 "Parser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : Stm)) in
             let _3 = (let data = parseState.GetInput(3) in (Microsoft.FSharp.Core.Operators.unbox data : Stm list)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 97 "Parser.fsy"
+# 100 "Parser.fsy"
                                                              _1 :: _3 
                    )
-# 97 "Parser.fsy"
+# 100 "Parser.fsy"
                  : Stm list));
-# 778 "Parser.fs"
+# 818 "Parser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 100 "Parser.fsy"
+# 103 "Parser.fsy"
                                                              GC [] 
                    )
-# 100 "Parser.fsy"
+# 103 "Parser.fsy"
                  : GuardedCommand));
-# 788 "Parser.fs"
+# 828 "Parser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : (Exp * Stm list) list)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 101 "Parser.fsy"
+# 104 "Parser.fsy"
                                                              GC _1 
                    )
-# 101 "Parser.fsy"
+# 104 "Parser.fsy"
                  : GuardedCommand));
-# 799 "Parser.fs"
+# 839 "Parser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : Exp)) in
             let _3 = (let data = parseState.GetInput(3) in (Microsoft.FSharp.Core.Operators.unbox data : Stm list)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 104 "Parser.fsy"
+# 107 "Parser.fsy"
                                                              [(_1,_3)]   
                    )
-# 104 "Parser.fsy"
+# 107 "Parser.fsy"
                  : (Exp * Stm list) list));
-# 811 "Parser.fs"
+# 851 "Parser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : Exp)) in
             let _3 = (let data = parseState.GetInput(3) in (Microsoft.FSharp.Core.Operators.unbox data : Stm list)) in
@@ -816,243 +856,243 @@ let _fsyacc_reductions ()  =    [|
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 105 "Parser.fsy"
+# 108 "Parser.fsy"
                                                          (_1,_3)::_5 
                    )
-# 105 "Parser.fsy"
+# 108 "Parser.fsy"
                  : (Exp * Stm list) list));
-# 824 "Parser.fs"
+# 864 "Parser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : Access)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 108 "Parser.fsy"
+# 111 "Parser.fsy"
                                                              Access _1 
                    )
-# 108 "Parser.fsy"
+# 111 "Parser.fsy"
                  : Exp));
-# 835 "Parser.fs"
+# 875 "Parser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : int)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 109 "Parser.fsy"
+# 112 "Parser.fsy"
                                                              N _1 
                    )
-# 109 "Parser.fsy"
+# 112 "Parser.fsy"
                  : Exp));
-# 846 "Parser.fs"
+# 886 "Parser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : bool)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 110 "Parser.fsy"
+# 113 "Parser.fsy"
                                                              B _1 
                    )
-# 110 "Parser.fsy"
+# 113 "Parser.fsy"
                  : Exp));
-# 857 "Parser.fs"
+# 897 "Parser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _2 = (let data = parseState.GetInput(2) in (Microsoft.FSharp.Core.Operators.unbox data : Exp)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 111 "Parser.fsy"
+# 114 "Parser.fsy"
                                                              _2 
                    )
-# 111 "Parser.fsy"
+# 114 "Parser.fsy"
                  : Exp));
-# 868 "Parser.fs"
+# 908 "Parser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _2 = (let data = parseState.GetInput(2) in (Microsoft.FSharp.Core.Operators.unbox data : Exp)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 112 "Parser.fsy"
+# 115 "Parser.fsy"
                                                              Apply("-", [_2])
                    )
-# 112 "Parser.fsy"
+# 115 "Parser.fsy"
                  : Exp));
-# 879 "Parser.fs"
+# 919 "Parser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _2 = (let data = parseState.GetInput(2) in (Microsoft.FSharp.Core.Operators.unbox data : Exp)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 113 "Parser.fsy"
+# 116 "Parser.fsy"
                                                              Apply("!", [_2])
                    )
-# 113 "Parser.fsy"
+# 116 "Parser.fsy"
                  : Exp));
-# 890 "Parser.fs"
+# 930 "Parser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : Exp)) in
             let _3 = (let data = parseState.GetInput(3) in (Microsoft.FSharp.Core.Operators.unbox data : Exp)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 114 "Parser.fsy"
+# 117 "Parser.fsy"
                                                              Apply("*", [_1; _3])
                    )
-# 114 "Parser.fsy"
+# 117 "Parser.fsy"
                  : Exp));
-# 902 "Parser.fs"
+# 942 "Parser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : Exp)) in
             let _3 = (let data = parseState.GetInput(3) in (Microsoft.FSharp.Core.Operators.unbox data : Exp)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 115 "Parser.fsy"
+# 118 "Parser.fsy"
                                                              Apply("+", [_1; _3])
                    )
-# 115 "Parser.fsy"
+# 118 "Parser.fsy"
                  : Exp));
-# 914 "Parser.fs"
+# 954 "Parser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : Exp)) in
             let _3 = (let data = parseState.GetInput(3) in (Microsoft.FSharp.Core.Operators.unbox data : Exp)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 116 "Parser.fsy"
+# 119 "Parser.fsy"
                                                              Apply("-", [_1; _3])
                    )
-# 116 "Parser.fsy"
+# 119 "Parser.fsy"
                  : Exp));
-# 926 "Parser.fs"
+# 966 "Parser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : Exp)) in
             let _3 = (let data = parseState.GetInput(3) in (Microsoft.FSharp.Core.Operators.unbox data : Exp)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 117 "Parser.fsy"
+# 120 "Parser.fsy"
                                                              Apply("&&", [_1; _3])
                    )
-# 117 "Parser.fsy"
+# 120 "Parser.fsy"
                  : Exp));
-# 938 "Parser.fs"
+# 978 "Parser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : Exp)) in
             let _3 = (let data = parseState.GetInput(3) in (Microsoft.FSharp.Core.Operators.unbox data : Exp)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 118 "Parser.fsy"
+# 121 "Parser.fsy"
                                                              Apply("=", [_1; _3])
                    )
-# 118 "Parser.fsy"
+# 121 "Parser.fsy"
                  : Exp));
-# 950 "Parser.fs"
+# 990 "Parser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : Exp)) in
             let _3 = (let data = parseState.GetInput(3) in (Microsoft.FSharp.Core.Operators.unbox data : Exp)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 119 "Parser.fsy"
+# 122 "Parser.fsy"
                                                              Apply("<=", [_1; _3])
                    )
-# 119 "Parser.fsy"
+# 122 "Parser.fsy"
                  : Exp));
-# 962 "Parser.fs"
+# 1002 "Parser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : Exp)) in
             let _3 = (let data = parseState.GetInput(3) in (Microsoft.FSharp.Core.Operators.unbox data : Exp)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 120 "Parser.fsy"
+# 123 "Parser.fsy"
                                                              Apply(">", [_1; _3])
                    )
-# 120 "Parser.fsy"
+# 123 "Parser.fsy"
                  : Exp));
-# 974 "Parser.fs"
+# 1014 "Parser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : Exp)) in
             let _3 = (let data = parseState.GetInput(3) in (Microsoft.FSharp.Core.Operators.unbox data : Exp)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 121 "Parser.fsy"
+# 124 "Parser.fsy"
                                                              Apply("<", [_1; _3])
                    )
-# 121 "Parser.fsy"
+# 124 "Parser.fsy"
                  : Exp));
-# 986 "Parser.fs"
+# 1026 "Parser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : Exp)) in
             let _3 = (let data = parseState.GetInput(3) in (Microsoft.FSharp.Core.Operators.unbox data : Exp)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 122 "Parser.fsy"
+# 125 "Parser.fsy"
                                                              Apply("<>", [_1; _3])
                    )
-# 122 "Parser.fsy"
+# 125 "Parser.fsy"
                  : Exp));
-# 998 "Parser.fs"
+# 1038 "Parser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : string)) in
             let _3 = (let data = parseState.GetInput(3) in (Microsoft.FSharp.Core.Operators.unbox data : 'ExpL)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 123 "Parser.fsy"
+# 126 "Parser.fsy"
                                                              Apply (_1, _3) 
                    )
-# 123 "Parser.fsy"
+# 126 "Parser.fsy"
                  : Exp));
-# 1010 "Parser.fs"
+# 1050 "Parser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 127 "Parser.fsy"
+# 130 "Parser.fsy"
                                                              [] 
                    )
-# 127 "Parser.fsy"
+# 130 "Parser.fsy"
                  : 'ExpL));
-# 1020 "Parser.fs"
+# 1060 "Parser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : 'ExpList)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 128 "Parser.fsy"
+# 131 "Parser.fsy"
                                                              _1 
                    )
-# 128 "Parser.fsy"
+# 131 "Parser.fsy"
                  : 'ExpL));
-# 1031 "Parser.fs"
+# 1071 "Parser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : Exp)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 131 "Parser.fsy"
+# 134 "Parser.fsy"
                                                              [_1] 
                    )
-# 131 "Parser.fsy"
+# 134 "Parser.fsy"
                  : 'ExpList));
-# 1042 "Parser.fs"
+# 1082 "Parser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : Exp)) in
             let _3 = (let data = parseState.GetInput(3) in (Microsoft.FSharp.Core.Operators.unbox data : 'ExpList)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 132 "Parser.fsy"
+# 135 "Parser.fsy"
                                                              _1 :: _3 
                    )
-# 132 "Parser.fsy"
+# 135 "Parser.fsy"
                  : 'ExpList));
 |]
-# 1055 "Parser.fs"
+# 1095 "Parser.fs"
 let tables () : Microsoft.FSharp.Text.Parsing.Tables<_> = 
   { reductions= _fsyacc_reductions ();
     endOfInputTag = _fsyacc_endOfInputTag;

@@ -19,7 +19,7 @@ module AST =
 
    and Access = 
           | AVar of string             (* Variable access        x    *) 
-          | AIndex of Access * Exp     (* Ar¢ray indexing         a[e] *)
+          | AIndex of Access * Exp     (* Array indexing         a[e] *)
           | ADeref of Exp              (* Pointer dereferencing  p^   *)
 
    type Stm  =                            

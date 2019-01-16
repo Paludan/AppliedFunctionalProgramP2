@@ -31,7 +31,7 @@ open VirtualMachine
 
 System.IO.Directory.SetCurrentDirectory __SOURCE_DIRECTORY__;;
 
-let funcTree = parseFromFile "Ex7.gc";;
+let funcTree = parseFromFile "A0.gc";;
 let _ = tcP funcTree;;
 let funcCode = CP funcTree;;
 let _ = goTrace funcTree;;

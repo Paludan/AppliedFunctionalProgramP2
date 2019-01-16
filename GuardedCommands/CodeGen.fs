@@ -42,7 +42,7 @@ module CodeGeneration =
         | Access acc   -> CA vEnv fEnv acc @ [LDI] 
         | Apply("!", [e]) -> CE vEnv fEnv e @  [NOT]
         | Apply("-", [e]) -> CE vEnv fEnv e @  [CSTI 0; SWAP; SUB]
-        
+        | Addr acc        -> CA vEnv fEnv acc
         | Apply("&&",[b1;b2]) ->    let labend   = newLabel()
                                     let labfalse = newLabel()
                                     CE vEnv fEnv b1 @ [IFZERO labfalse] @ CE vEnv fEnv b2
@@ -70,8 +70,9 @@ module CodeGeneration =
         | AVar x         -> match Map.find x (fst vEnv) with
                                | (GloVar addr,_) -> [CSTI addr]
                                | (LocVar addr,_) -> [GETBP; CSTI addr; ADD]
-        | AIndex(acc, e) -> failwith "CA: array indexing not supported yet" 
-        | ADeref e       -> failwith "CA: pointer dereferencing not supported yet"
+        | AIndex(acc, e) -> CA vEnv fEnv acc
+                            @ [LDI] @ CE vEnv fEnv e @ [ADD]
+        | ADeref e       -> CE vEnv fEnv e
     
     (* Peter Sestoft MicroC *)
     and cExprs es varEnv funEnv : instr list = 
@@ -92,7 +93,10 @@ module CodeGeneration =
         match typ with
             | ATyp (ATyp _, _) -> 
                 raise (Failure "allocate: array of arrays not permitted")
-            | ATyp (t, Some i) -> failwith "allocate: array not supported yet"
+            | ATyp (t, Some i) ->
+                let newEnv = (Map.add x (kind (fdepth+i), typ) env, fdepth+i+1)
+                let code = [INCSP i; GETSP; CSTI (i-1); SUB]
+                (newEnv, code)
             | _ -> 
                 let newEnv = (Map.add x (kind fdepth, typ) env, fdepth+1)
                 let code = [INCSP 1]

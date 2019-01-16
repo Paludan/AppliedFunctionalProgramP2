@@ -2,3 +2,7 @@ GuardedCommands/bin
 GuardedCommands/obj
 .idea/
 GuardedCommands/Script.fsx
+*.gc
+GuardedCommands/Lexer.fs
+GuardedCommands/Parser.fs
+GuardedCommands/Parser.fsi

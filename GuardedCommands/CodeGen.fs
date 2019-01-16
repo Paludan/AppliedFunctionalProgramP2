@@ -40,7 +40,7 @@ module CodeGeneration =
         | N n          -> [CSTI n]
         | B b          -> [CSTI (if b then 1 else 0)]
         | Access acc   -> CA vEnv fEnv acc @ [LDI] 
-        
+        | Apply("!", [e]) -> CE vEnv fEnv e @  [NOT]
         | Apply("-", [e]) -> CE vEnv fEnv e @  [CSTI 0; SWAP; SUB]
         
         | Apply("&&",[b1;b2]) ->    let labend   = newLabel()
@@ -48,14 +48,20 @@ module CodeGeneration =
                                     CE vEnv fEnv b1 @ [IFZERO labfalse] @ CE vEnv fEnv b2
                                     @ [GOTO labend; Label labfalse; CSTI 0; Label labend]
         
-        | Apply(o,[e1;e2]) when List.exists (fun x -> o=x) ["+"; "*"; "="]
+        | Apply(o,[e1;e2]) when List.exists (fun x -> o=x) ["+"; "*"; "=";"-"; "<>"; "<"; ">="; ">"; "<="]
              -> let ins = match o with
                           | "+"  -> [ADD]
+                          | "-"  -> [SUB]
                           | "*"  -> [MUL]
                           | "="  -> [EQ] 
+                          | "<>"  -> [EQ; NOT]
+                          | "<"   -> [LT]
+                          | ">="  -> [LT; NOT]
+                          | ">"   -> [SWAP; LT]
+                          | "<="  -> [SWAP; LT; NOT]
                           | _    -> failwith "CE: this case is not possible"
                 CE vEnv fEnv e1 @ CE vEnv fEnv e2 @ ins 
-        
+        | Apply(f, es) -> callfun f es vEnv fEnv
         | _            -> failwith "CE: not supported yet"
     
     
@@ -63,12 +69,22 @@ module CodeGeneration =
     and CA vEnv fEnv = function 
         | AVar x         -> match Map.find x (fst vEnv) with
                                | (GloVar addr,_) -> [CSTI addr]
-                               | (LocVar addr,_) -> failwith "CA: Local variables not supported yet"
+                               | (LocVar addr,_) -> [GETBP; CSTI addr; ADD]
         | AIndex(acc, e) -> failwith "CA: array indexing not supported yet" 
         | ADeref e       -> failwith "CA: pointer dereferencing not supported yet"
     
+    (* Peter Sestoft MicroC *)
+    and cExprs es varEnv funEnv : instr list = 
+        List.concat(List.map (fun e -> CE varEnv funEnv e) es)
     
-    
+    (* Peter Sestoft MicroC *)
+    and callfun f es vEnv fEnv : instr list =
+        let (labf, tyOpt, paramdecs) = Map.find f fEnv
+        let argc = List.length es
+        if argc = List.length paramdecs then
+          cExprs es vEnv fEnv @ [CALL(argc, labf)]
+        else
+          raise (Failure (f + ": parameter/argument mismatch"))
     
     (* Bind declared variable in env and generate code to allocate it: *)   
     let allocate (kind : int -> Var) (typ, x) (vEnv : varEnv)  =
@@ -92,6 +108,11 @@ module CodeGeneration =
         | Ass(acc,e)       -> CA vEnv fEnv acc @ CE vEnv fEnv e @ [STI; INCSP -1]
     
         | Block([],stms)   -> CSs vEnv fEnv stms
+        | Block(dcls, stms) -> let (gvM, n) = vEnv
+                               let (envf, fdepthf) = bindParams dcls (gvM, n)
+                               let code = CSs (envf, fdepthf) fEnv stms
+                               [ INCSP (List.length dcls)] @ code @ [INCSP -(List.length dcls)]
+                 
         
         | Alt (GC (gcl))   -> let labend = newLabel()
                               List.fold (fun il (e, stms) ->
@@ -113,8 +134,12 @@ module CodeGeneration =
                                         il @ CS vEnv fEnv s 
                                     )[] stms @ [GOTO labelstart] @ [Label subend]
                                 ) 
-                             ) [] gcl @ [Label labend]                    
-                        | _                -> failwith "CS: this statement is not supported yet"
+                             ) [] gcl @ [Label labend] 
+        | Return None -> 
+            [RET (snd vEnv - 1)]
+        | Return (Some e) -> 
+            CE vEnv fEnv e @ [RET (snd vEnv)]                
+        | _               -> failwith "CS: this statement is not supported yet"
     
     and CSs vEnv fEnv stms = List.collect (CS vEnv fEnv) stms 
     
@@ -151,8 +176,8 @@ module CodeGeneration =
             [Label labf] @ code @ [RET (List.length paras-1)]
         let functions = 
                     List.choose (function
-                                    | FunDec (tyOpt, f, decList, stmList) 
-                                                -> Some(compilefun (tyOpt, f, decList, stmList))
+                                    | FunDec (tyOpt, f, decList, stm) 
+                                                -> Some(compilefun (tyOpt, f, decList, stm))
                                     | VarDec _  -> None)
                                 decs
         initCode @ CSs gvEnv fEnv stms @ [STOP] @ List.concat functions

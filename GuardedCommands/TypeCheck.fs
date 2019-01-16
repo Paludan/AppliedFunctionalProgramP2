@@ -14,10 +14,10 @@ module TypeCheck =
          | B _              -> BTyp   
          | Access acc       -> tcA gtenv ltenv acc     
                    
-         | Apply(f,[e]) when List.exists (fun x ->  x=f) ["-"]  
+         | Apply(f,[e]) when List.exists (fun x ->  x=f) ["-";"!"]  
                             -> tcMonadic gtenv ltenv f e        
 
-         | Apply(f,[e1;e2]) when List.exists (fun x ->  x=f) ["+";"*"; "="; "&&"]        
+         | Apply(f,[e1;e2]) when List.exists (fun x ->  x=f) ["+";"*"; "="; "&&"; "-"]        
                             -> tcDyadic gtenv ltenv f e1 e2   
 
          | Apply(f,es)    -> tcNaryFunction gtenv ltenv f es
@@ -26,10 +26,11 @@ module TypeCheck =
 
    and tcMonadic gtenv ltenv f e = match (f, tcE gtenv ltenv e) with
                                    | ("-", ITyp) -> ITyp
+                                   | ("!", BTyp) -> BTyp
                                    | _           -> failwith "illegal/illtyped monadic expression" 
    
    and tcDyadic gtenv ltenv f e1 e2 = match (f, tcE gtenv ltenv e1, tcE gtenv ltenv e2) with
-                                      | (o, ITyp, ITyp) when List.exists (fun x ->  x=o) ["+";"*"]  -> ITyp
+                                      | (o, ITyp, ITyp) when List.exists (fun x ->  x=o) ["+";"*"; "-"]  -> ITyp
                                       | (o, ITyp, ITyp) when List.exists (fun x ->  x=o) ["="] -> BTyp
                                       | (o, BTyp, BTyp) when List.exists (fun x ->  x=o) ["&&";"="]     -> BTyp 
                                       | _                      -> failwith("illegal/illtyped dyadic expression: " + f)
@@ -76,7 +77,7 @@ module TypeCheck =
                          | Ass(acc,e) -> if tcA gtenv ltenv acc = tcE gtenv ltenv e 
                                          then ()
                                          else failwith "illtyped assignment"                                
-                         |  Return(expo) -> match Map.find "function" ltenv with
+                         | Return(expo) -> match Map.find "function" ltenv with
                                                     |FTyp (tpyl, topt) -> let typeo = 
                                                                               match expo with 
                                                                               | Some t -> Some (tcE gtenv ltenv t)
@@ -86,7 +87,8 @@ module TypeCheck =
                                                                           else failwith ("Return type is not correct")
                                                     | _  -> failwith ("It's not a function")
                                             
-                         | Block([],stms) -> List.iter (tcS gtenv ltenv) stms
+                         | Block(decs,stms) -> let newltenv = tcGDecs ltenv decs 
+                                               List.iter (tcS gtenv newltenv) stms
                          | Do (g)         -> tcGC gtenv ltenv g
                          | Alt (g)        -> tcGC gtenv ltenv g
                          | _              -> failwith "tcS: this statement is not supported yet"

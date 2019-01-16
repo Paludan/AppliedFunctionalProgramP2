@@ -76,7 +76,6 @@ DecList:
 
 DecVar: 
     | NAME COLON Typ                       { VarDec($3,$1) }
-    | NAME COLON Typ LSP INT RSP           { VarDec(ATyp($3, Some ($5)), $1) }
 
 DecVarL:
                                          { [] }

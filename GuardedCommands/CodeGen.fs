@@ -142,7 +142,8 @@ module CodeGeneration =
         | Return None -> 
             [RET (snd vEnv - 1)]
         | Return (Some e) -> 
-            CE vEnv fEnv e @ [RET (snd vEnv)]                
+            CE vEnv fEnv e @ [RET (snd vEnv)]      
+        | Call(s, es) -> callfun s es vEnv fEnv          
         | _               -> failwith "CS: this statement is not supported yet"
     
     and CSs vEnv fEnv stms = List.collect (CS vEnv fEnv) stms 

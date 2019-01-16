@@ -18,6 +18,7 @@ let keyword s =
     | "fi"        -> FI 
     | "do"        -> DO
     | "function"  -> FUNC
+    | "procedure" -> PROC
     | "return"    -> RET
     | "od"        -> OD     
     | "true"      -> BOOL(true) 

@@ -17,7 +17,7 @@ module TypeCheck =
          | Apply(f,[e]) when List.exists (fun x ->  x=f) ["-";"!"]  
                             -> tcMonadic gtenv ltenv f e        
 
-         | Apply(f,[e1;e2]) when List.exists (fun x ->  x=f) ["+";"*"; "="; "&&"; "-"]        
+         | Apply(f,[e1;e2]) when List.exists (fun x ->  x=f) ["+";"*"; "="; "&&"; "-"; "<"; ">"; "<>"; "<="; ">="]        
                             -> tcDyadic gtenv ltenv f e1 e2   
 
          | Apply(f,es)    -> tcNaryFunction gtenv ltenv f es
@@ -31,7 +31,7 @@ module TypeCheck =
    
    and tcDyadic gtenv ltenv f e1 e2 = match (f, tcE gtenv ltenv e1, tcE gtenv ltenv e2) with
                                       | (o, ITyp, ITyp) when List.exists (fun x ->  x=o) ["+";"*"; "-"]  -> ITyp
-                                      | (o, ITyp, ITyp) when List.exists (fun x ->  x=o) ["="] -> BTyp
+                                      | (o, ITyp, ITyp) when List.exists (fun x ->  x=o) ["="; "<"; ">"; "<>"; "<="; ">="] -> BTyp
                                       | (o, BTyp, BTyp) when List.exists (fun x ->  x=o) ["&&";"="]     -> BTyp 
                                       | _                      -> failwith("illegal/illtyped dyadic expression: " + f)
 
@@ -40,7 +40,7 @@ module TypeCheck =
                                                        else failwith ("no declaration for : " + f)
                                            match ftype with 
                                                 | FTyp (tl, typeo) -> if (List.length tl = List.length es)                  
-                                                                      then if(List.fold(fun tces (a,b) -> tces && ( a = tcE gtenv ltenv b))  true (List.zip tl es))
+                                                                      then if(List.fold(fun tces (a,b) -> tces && (checkType gtenv ltenv a b))  true (List.zip tl es))
                                                                            then match typeo with 
                                                                                     | Some t -> t
                                                                                     | None -> failwith ("No return from function " + f)
@@ -55,7 +55,15 @@ module TypeCheck =
                                         //failwith "type check: functions not supported yet"
  
    and tcNaryProcedure gtenv ltenv f es = failwith "type check: procedures not supported yet"
-      
+   
+   and checkType gtenv ltenv typ e = 
+        match typ with
+            | ATyp (t, into) -> match into with
+                                    | None -> match tcE gtenv ltenv e with
+                                                | ATyp (t1, _ ) -> t = t1
+                                                | _ -> false
+                                    | _ -> failwith "Can define the size of array when it is a parameter of a function"
+            | _ -> typ = tcE gtenv ltenv e
 
 /// tcA gtenv ltenv e gives the type for access acc on the basis of type environments gtenv and ltenv
 /// for global and local variables 
@@ -66,7 +74,20 @@ module TypeCheck =
                                          | None   -> failwith ("no declaration for : " + x)
                                          | Some t -> t
                              | Some t -> t            
-         | AIndex(acc, e) -> failwith "tcA: array indexing not supported yes"
+         | AIndex(acc, e) -> let atyp= tcA gtenv ltenv acc
+                             match atyp with
+                                | ATyp(t, into) -> match into with
+                                                    | None -> t
+                                                    | Some num-> match e with 
+                                                                    | N n -> if ((n >= 0) && (n < num))
+                                                                             then t
+                                                                             else failwith "Index is not a valid number"
+                                                                    | _ ->   t
+                                | _ -> failwith ("It's not a array")
+                                          
+                             
+  
+                            //failwith "tcA: array indexing not supported yes"
          | ADeref e       -> failwith "tcA: pointer dereferencing not supported yes"
  
 

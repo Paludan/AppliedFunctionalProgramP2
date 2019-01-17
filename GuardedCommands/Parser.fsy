@@ -10,7 +10,7 @@ open GuardedCommands.Frontend.AST
 %token LP LCP LSP RP RCP RSP
 %token IF FI DO OD BEGIN END RET
 %token COMMA COLON SEMI BAR TO
-%token NEG PLUS MINUS TIMES AND EQ LE LT GT NEQ
+%token NEG PLUS MINUS TIMES AND EQ LE LT GT NEQ DREF ADDROF
 %token PRINT ASG SKIP ABORT FUNC PROC
 %token EOF
 %token HIGH
@@ -51,7 +51,8 @@ Typ:
 
 Var:
     | NAME COLON Typ                                { VarDec($3,$1) }
-    | NAME COLON BasicTyp LSP RSP               { VarDec(ATyp($3, None), $1) }
+    | NAME COLON BasicTyp LSP RSP                   { VarDec(ATyp($3, None), $1) }
+    | NAME COLON DREF Typ                           { VarDec(PTyp($4), $1) }
 
 VarL:
 	|								  { [] }
@@ -89,6 +90,7 @@ DecVarList:
 Access:
       NAME                              { AVar $1 }
 	| NAME LSP Exp RSP					{ AIndex(AVar ($1), $3) }
+	| NAME DREF                         { ADeref(Access(AVar($1))) }
 	
 Stm:
     PRINT Exp                         { PrintLn $2 }
@@ -120,6 +122,7 @@ GCList:
 
 Exp:
     Access                            { Access $1 }
+  | ADDROF Access                     { Addr $2 }
   | INT                               { N $1 }
   | BOOL                              { B $1 }       
   | LP Exp RP                         { $2 } 

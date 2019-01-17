@@ -3,9 +3,9 @@
 
 // You must revise the following 3 pathes 
 
-#r @"/Users/paludan/Downloads/GuardedCommands/packages/FsLexYacc.Runtime.7.0.6/lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid10+MonoTouch10/FsLexYacc.Runtime.dll";
-#r @"/Users/paludan/Downloads/GuardedCommands/GuardedCommands/bin/Debug/Machine.dll";
-#r @"/Users/paludan/Downloads/GuardedCommands/GuardedCommands/bin/Debug/VirtualMachine.dll";
+#r @"C:\Users\Thomas\Documents\GitHub\AppliedFunctionalProgramP2/packages/FsLexYacc.Runtime.7.0.6/lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid10+MonoTouch10/FsLexYacc.Runtime.dll";
+#r @"C:\Users\Thomas\Documents\GitHub\AppliedFunctionalProgramP2/GuardedCommands/bin/Debug/Machine.dll";
+#r @"C:\Users\Thomas\Documents\GitHub\AppliedFunctionalProgramP2/GuardedCommands/bin/Debug/VirtualMachine.dll";
 
 #load "AST.fs"
 #load "Parser.fs"

@@ -1,4 +1,4 @@
-# 1 "/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/Lexer.fsl"
+# 1 "C:\Users\Thomas\Documents\GitHub\AppliedFunctionalProgramP2\GuardedCommands\Lexer.fsl"
  
 module Lexer
 open System
@@ -19,13 +19,14 @@ let keyword s =
     | "fi"        -> FI 
     | "do"        -> DO
     | "function"  -> FUNC
+    | "procedure" -> PROC
     | "return"    -> RET
     | "od"        -> OD     
     | "true"      -> BOOL(true) 
     | "false"     -> BOOL(false)
     | _           -> NAME s  
 
-# 28 "/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/Lexer.fs"
+# 29 "C:\Users\Thomas\Documents\GitHub\AppliedFunctionalProgramP2\GuardedCommands\Lexer.fs"
 let trans : uint16[] array = 
     [| 
    (* State 0 *)
@@ -102,140 +103,140 @@ and tokenize  (lexbuf : Microsoft.FSharp.Text.Lexing.LexBuffer<_>) = _fslex_toke
 and _fslex_tokenize  _fslex_state lexbuf =
   match _fslex_tables.Interpret(_fslex_state,lexbuf) with
   | 0 -> ( 
-# 41 "/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/Lexer.fsl"
+# 42 "C:\Users\Thomas\Documents\GitHub\AppliedFunctionalProgramP2\GuardedCommands\Lexer.fsl"
                                  tokenize lexbuf 
-# 107 "/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/Lexer.fs"
+# 108 "C:\Users\Thomas\Documents\GitHub\AppliedFunctionalProgramP2\GuardedCommands\Lexer.fs"
           )
   | 1 -> ( 
-# 42 "/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/Lexer.fsl"
+# 43 "C:\Users\Thomas\Documents\GitHub\AppliedFunctionalProgramP2\GuardedCommands\Lexer.fsl"
                                  lexbuf.EndPos <- lexbuf.EndPos.NextLine; tokenize lexbuf 
-# 112 "/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/Lexer.fs"
+# 113 "C:\Users\Thomas\Documents\GitHub\AppliedFunctionalProgramP2\GuardedCommands\Lexer.fs"
           )
   | 2 -> ( 
-# 43 "/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/Lexer.fsl"
+# 44 "C:\Users\Thomas\Documents\GitHub\AppliedFunctionalProgramP2\GuardedCommands\Lexer.fsl"
                                  INT<| Int32.Parse(Encoding.UTF8.GetString(lexbuf.Lexeme)) 
-# 117 "/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/Lexer.fs"
+# 118 "C:\Users\Thomas\Documents\GitHub\AppliedFunctionalProgramP2\GuardedCommands\Lexer.fs"
           )
   | 3 -> ( 
-# 44 "/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/Lexer.fsl"
+# 45 "C:\Users\Thomas\Documents\GitHub\AppliedFunctionalProgramP2\GuardedCommands\Lexer.fsl"
                                  LP  
-# 122 "/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/Lexer.fs"
+# 123 "C:\Users\Thomas\Documents\GitHub\AppliedFunctionalProgramP2\GuardedCommands\Lexer.fs"
           )
   | 4 -> ( 
-# 45 "/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/Lexer.fsl"
+# 46 "C:\Users\Thomas\Documents\GitHub\AppliedFunctionalProgramP2\GuardedCommands\Lexer.fsl"
                                  RP  
-# 127 "/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/Lexer.fs"
+# 128 "C:\Users\Thomas\Documents\GitHub\AppliedFunctionalProgramP2\GuardedCommands\Lexer.fs"
           )
   | 5 -> ( 
-# 46 "/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/Lexer.fsl"
+# 47 "C:\Users\Thomas\Documents\GitHub\AppliedFunctionalProgramP2\GuardedCommands\Lexer.fsl"
                                  LSP 
-# 132 "/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/Lexer.fs"
+# 133 "C:\Users\Thomas\Documents\GitHub\AppliedFunctionalProgramP2\GuardedCommands\Lexer.fs"
           )
   | 6 -> ( 
-# 47 "/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/Lexer.fsl"
+# 48 "C:\Users\Thomas\Documents\GitHub\AppliedFunctionalProgramP2\GuardedCommands\Lexer.fsl"
                                  RSP 
-# 137 "/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/Lexer.fs"
+# 138 "C:\Users\Thomas\Documents\GitHub\AppliedFunctionalProgramP2\GuardedCommands\Lexer.fs"
           )
   | 7 -> ( 
-# 48 "/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/Lexer.fsl"
+# 49 "C:\Users\Thomas\Documents\GitHub\AppliedFunctionalProgramP2\GuardedCommands\Lexer.fsl"
                                  LCP 
-# 142 "/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/Lexer.fs"
+# 143 "C:\Users\Thomas\Documents\GitHub\AppliedFunctionalProgramP2\GuardedCommands\Lexer.fs"
           )
   | 8 -> ( 
-# 49 "/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/Lexer.fsl"
+# 50 "C:\Users\Thomas\Documents\GitHub\AppliedFunctionalProgramP2\GuardedCommands\Lexer.fsl"
                                  RCP 
-# 147 "/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/Lexer.fs"
+# 148 "C:\Users\Thomas\Documents\GitHub\AppliedFunctionalProgramP2\GuardedCommands\Lexer.fs"
           )
   | 9 -> ( 
-# 50 "/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/Lexer.fsl"
+# 51 "C:\Users\Thomas\Documents\GitHub\AppliedFunctionalProgramP2\GuardedCommands\Lexer.fsl"
                                  COMMA 
-# 152 "/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/Lexer.fs"
+# 153 "C:\Users\Thomas\Documents\GitHub\AppliedFunctionalProgramP2\GuardedCommands\Lexer.fs"
           )
   | 10 -> ( 
-# 51 "/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/Lexer.fsl"
+# 52 "C:\Users\Thomas\Documents\GitHub\AppliedFunctionalProgramP2\GuardedCommands\Lexer.fsl"
                                  SEMI  
-# 157 "/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/Lexer.fs"
+# 158 "C:\Users\Thomas\Documents\GitHub\AppliedFunctionalProgramP2\GuardedCommands\Lexer.fs"
           )
   | 11 -> ( 
-# 52 "/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/Lexer.fsl"
+# 53 "C:\Users\Thomas\Documents\GitHub\AppliedFunctionalProgramP2\GuardedCommands\Lexer.fsl"
                                  COLON 
-# 162 "/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/Lexer.fs"
+# 163 "C:\Users\Thomas\Documents\GitHub\AppliedFunctionalProgramP2\GuardedCommands\Lexer.fs"
           )
   | 12 -> ( 
-# 53 "/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/Lexer.fsl"
+# 54 "C:\Users\Thomas\Documents\GitHub\AppliedFunctionalProgramP2\GuardedCommands\Lexer.fsl"
                                  BAR 
-# 167 "/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/Lexer.fs"
+# 168 "C:\Users\Thomas\Documents\GitHub\AppliedFunctionalProgramP2\GuardedCommands\Lexer.fs"
           )
   | 13 -> ( 
-# 54 "/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/Lexer.fsl"
+# 55 "C:\Users\Thomas\Documents\GitHub\AppliedFunctionalProgramP2\GuardedCommands\Lexer.fsl"
                                  TO 
-# 172 "/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/Lexer.fs"
+# 173 "C:\Users\Thomas\Documents\GitHub\AppliedFunctionalProgramP2\GuardedCommands\Lexer.fs"
           )
   | 14 -> ( 
-# 55 "/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/Lexer.fsl"
+# 56 "C:\Users\Thomas\Documents\GitHub\AppliedFunctionalProgramP2\GuardedCommands\Lexer.fsl"
                                  ASG   
-# 177 "/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/Lexer.fs"
+# 178 "C:\Users\Thomas\Documents\GitHub\AppliedFunctionalProgramP2\GuardedCommands\Lexer.fs"
           )
   | 15 -> ( 
-# 56 "/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/Lexer.fsl"
+# 57 "C:\Users\Thomas\Documents\GitHub\AppliedFunctionalProgramP2\GuardedCommands\Lexer.fsl"
                                  NEG 
-# 182 "/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/Lexer.fs"
+# 183 "C:\Users\Thomas\Documents\GitHub\AppliedFunctionalProgramP2\GuardedCommands\Lexer.fs"
           )
   | 16 -> ( 
-# 57 "/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/Lexer.fsl"
+# 58 "C:\Users\Thomas\Documents\GitHub\AppliedFunctionalProgramP2\GuardedCommands\Lexer.fsl"
                                  AND 
-# 187 "/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/Lexer.fs"
+# 188 "C:\Users\Thomas\Documents\GitHub\AppliedFunctionalProgramP2\GuardedCommands\Lexer.fs"
           )
   | 17 -> ( 
-# 58 "/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/Lexer.fsl"
+# 59 "C:\Users\Thomas\Documents\GitHub\AppliedFunctionalProgramP2\GuardedCommands\Lexer.fsl"
                                  NEQ 
-# 192 "/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/Lexer.fs"
+# 193 "C:\Users\Thomas\Documents\GitHub\AppliedFunctionalProgramP2\GuardedCommands\Lexer.fs"
           )
   | 18 -> ( 
-# 59 "/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/Lexer.fsl"
+# 60 "C:\Users\Thomas\Documents\GitHub\AppliedFunctionalProgramP2\GuardedCommands\Lexer.fsl"
                                  LT 
-# 197 "/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/Lexer.fs"
+# 198 "C:\Users\Thomas\Documents\GitHub\AppliedFunctionalProgramP2\GuardedCommands\Lexer.fs"
           )
   | 19 -> ( 
-# 60 "/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/Lexer.fsl"
+# 61 "C:\Users\Thomas\Documents\GitHub\AppliedFunctionalProgramP2\GuardedCommands\Lexer.fsl"
                                  GT 
-# 202 "/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/Lexer.fs"
+# 203 "C:\Users\Thomas\Documents\GitHub\AppliedFunctionalProgramP2\GuardedCommands\Lexer.fs"
           )
   | 20 -> ( 
-# 61 "/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/Lexer.fsl"
+# 62 "C:\Users\Thomas\Documents\GitHub\AppliedFunctionalProgramP2\GuardedCommands\Lexer.fsl"
                                  LE 
-# 207 "/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/Lexer.fs"
+# 208 "C:\Users\Thomas\Documents\GitHub\AppliedFunctionalProgramP2\GuardedCommands\Lexer.fs"
           )
   | 21 -> ( 
-# 62 "/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/Lexer.fsl"
+# 63 "C:\Users\Thomas\Documents\GitHub\AppliedFunctionalProgramP2\GuardedCommands\Lexer.fsl"
                                  TIMES 
-# 212 "/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/Lexer.fs"
+# 213 "C:\Users\Thomas\Documents\GitHub\AppliedFunctionalProgramP2\GuardedCommands\Lexer.fs"
           )
   | 22 -> ( 
-# 63 "/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/Lexer.fsl"
+# 64 "C:\Users\Thomas\Documents\GitHub\AppliedFunctionalProgramP2\GuardedCommands\Lexer.fsl"
                                  MINUS 
-# 217 "/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/Lexer.fs"
+# 218 "C:\Users\Thomas\Documents\GitHub\AppliedFunctionalProgramP2\GuardedCommands\Lexer.fs"
           )
   | 23 -> ( 
-# 64 "/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/Lexer.fsl"
+# 65 "C:\Users\Thomas\Documents\GitHub\AppliedFunctionalProgramP2\GuardedCommands\Lexer.fsl"
                                  EQ 
-# 222 "/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/Lexer.fs"
+# 223 "C:\Users\Thomas\Documents\GitHub\AppliedFunctionalProgramP2\GuardedCommands\Lexer.fs"
           )
   | 24 -> ( 
-# 65 "/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/Lexer.fsl"
+# 66 "C:\Users\Thomas\Documents\GitHub\AppliedFunctionalProgramP2\GuardedCommands\Lexer.fsl"
                                  PLUS 
-# 227 "/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/Lexer.fs"
+# 228 "C:\Users\Thomas\Documents\GitHub\AppliedFunctionalProgramP2\GuardedCommands\Lexer.fs"
           )
   | 25 -> ( 
-# 66 "/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/Lexer.fsl"
+# 67 "C:\Users\Thomas\Documents\GitHub\AppliedFunctionalProgramP2\GuardedCommands\Lexer.fsl"
                                  keyword(Encoding.UTF8.GetString(lexbuf.Lexeme)) 
-# 232 "/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/Lexer.fs"
+# 233 "C:\Users\Thomas\Documents\GitHub\AppliedFunctionalProgramP2\GuardedCommands\Lexer.fs"
           )
   | 26 -> ( 
-# 67 "/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/Lexer.fsl"
+# 68 "C:\Users\Thomas\Documents\GitHub\AppliedFunctionalProgramP2\GuardedCommands\Lexer.fsl"
                                  EOF 
-# 237 "/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/Lexer.fs"
+# 238 "C:\Users\Thomas\Documents\GitHub\AppliedFunctionalProgramP2\GuardedCommands\Lexer.fs"
           )
   | _ -> failwith "tokenize"
 
-# 3000000 "/Users/paludan/Documents/AppliedFunctionalProgramP2/GuardedCommands/Lexer.fs"
+# 3000000 "C:\Users\Thomas\Documents\GitHub\AppliedFunctionalProgramP2\GuardedCommands\Lexer.fs"

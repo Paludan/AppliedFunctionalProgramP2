@@ -106,32 +106,33 @@ module CodeGeneration =
     
     
     /// CS vEnv fEnv s gives the code for a statement s on the basis of a variable and a function environment                          
-    let rec CS vEnv fEnv = function
+    let rec CS vEnv fEnv isFunction = function
         | PrintLn e        -> CE vEnv fEnv e @ [PRINTI; INCSP -1] 
     
         | Ass(acc,e)       -> CA vEnv fEnv acc @ CE vEnv fEnv e @ [STI; INCSP -1]
     
-        | Block([],stms)   -> CSs vEnv fEnv stms
-
-        | Block(dcls, stms) -> let rec loop decList vEnv' = (*Inspiration from Peter Sestoft MicroC*)
+        | Block([],stms)   -> CSs vEnv fEnv isFunction stms
+        
+        | Block(dcls, stms) -> let varScope = match isFunction  with 
+                                              | true -> LocVar
+                                              | false -> GloVar
+                               let rec loop decList vEnv' = (*Inspiration from Peter Sestoft MicroC*)
                                    match decList with
                                    | [] -> (vEnv', [])
                                    | dec :: decTail ->
                                      let varDec = match dec with | VarDec(t,s) -> (t,s)
-                                     let (vEnv1, code1) = allocate LocVar varDec vEnv'
+                                     let (vEnv1, code1) = allocate varScope varDec vEnv'
                                      let (vEnv2, code) = loop decTail vEnv1
                                      (vEnv2, code1 @ code)
                                let (vEnv1, codeDec) = loop dcls vEnv
-                               codeDec @ CSs vEnv1 fEnv stms @ [INCSP (snd vEnv - snd vEnv1)]
+                               codeDec @ CSs vEnv1 fEnv isFunction stms @ [INCSP (snd vEnv - snd vEnv1)]
         
         | Alt (GC (gcl))   -> let labend = newLabel()
                               List.fold (fun il (e, stms) ->
                                  let subend = newLabel()
                                  il @ CE vEnv fEnv e @ [IFZERO subend] @
-                                 ( List.fold (fun il s ->
-                                         il @ CS vEnv fEnv s @ [GOTO labend] @ [Label subend] 
-                                     )[] stms
-                                 ) @ [Label labend] 
+                                 CSs vEnv fEnv isFunction stms
+                                 @ [GOTO labend] @ [Label subend] @ [Label labend] 
                               ) [] gcl
              
         | Do (GC (gcl))   -> let labelstart = newLabel()
@@ -140,19 +141,17 @@ module CodeGeneration =
                              List.fold (fun il (e, stms) ->
                                 let subend = newLabel()
                                 il @ CE vEnv fEnv e @ [IFZERO subend] @
-                                ( List.fold (fun il s ->
-                                        il @ CS vEnv fEnv s 
-                                    )[] stms @ [GOTO labelstart] @ [Label subend]
+                                ( CSs vEnv fEnv isFunction stms @ [GOTO labelstart] @ [Label subend]
                                 ) 
                              ) [] gcl @ [Label labend] 
         | Return None -> 
-            [RET (snd vEnv - 1)]
+            [RET (snd vEnv)]
         | Return (Some e) -> 
             CE vEnv fEnv e @ [RET (snd vEnv)]      
         | Call(s, es) -> callfun s es vEnv fEnv @ [INCSP -1]
         | _               -> failwith "CS: this statement is not supported yet"
     
-    and CSs vEnv fEnv stms = List.collect (CS vEnv fEnv) stms 
+    and CSs vEnv fEnv isFunction stms = List.collect (CS vEnv fEnv isFunction) stms 
     
     
     
@@ -183,7 +182,7 @@ module CodeGeneration =
         let compilefun (tyOpt, f, xs, stm) =
             let (labf, _, paras) = Map.find f fEnv
             let (envf, fdepthf) = bindParams paras (gvM, 0)
-            let code = CS (envf, fdepthf) fEnv stm
+            let code = CS (envf, fdepthf) fEnv true stm
             [Label labf] @ code @ [RET (List.length paras-1)]
         let functions = 
                     List.choose (function
@@ -191,4 +190,4 @@ module CodeGeneration =
                                                 -> Some(compilefun (tyOpt, f, decList, stm))
                                     | VarDec _  -> None)
                                 decs
-        initCode @ CSs gvEnv fEnv stms @ [STOP] @ List.concat functions
+        initCode @ CSs gvEnv fEnv false stms @ [STOP] @ List.concat functions

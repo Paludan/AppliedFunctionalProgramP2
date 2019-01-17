@@ -22,6 +22,8 @@ module TypeCheck =
 
          | Apply(f,es)    -> tcNaryFunction gtenv ltenv f es
 
+         | Addr acc       -> PTyp (tcA gtenv ltenv acc)
+
          | _                -> failwith "tcE: not supported yet"
 
    and tcMonadic gtenv ltenv f e = match (f, tcE gtenv ltenv e) with
@@ -100,7 +102,10 @@ module TypeCheck =
                              
   
                             //failwith "tcA: array indexing not supported yes"
-         | ADeref e       -> failwith "tcA: pointer dereferencing not supported yes"
+         | ADeref e       -> match (tcE gtenv ltenv e) with
+                                | PTyp typ -> typ
+                                | _ -> failwith "It's not a address"
+                                //failwith "tcA: pointer dereferencing not supported yes"
  
 
 /// tcS gtenv ltenv retOpt s checks the well-typeness of a statement s on the basis of type environments gtenv and ltenv

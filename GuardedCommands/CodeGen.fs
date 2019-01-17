@@ -145,7 +145,7 @@ module CodeGeneration =
                                 ) 
                              ) [] gcl @ [Label labend] 
         | Return None -> 
-            [RET (snd vEnv)]
+            [RET (snd vEnv - 1)]
         | Return (Some e) -> 
             CE vEnv fEnv e @ [RET (snd vEnv)]      
         | Call(s, es) -> callfun s es vEnv fEnv @ [INCSP -1]

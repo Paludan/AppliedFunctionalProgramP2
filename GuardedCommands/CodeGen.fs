@@ -112,17 +112,16 @@ module CodeGeneration =
         | Ass(acc,e)       -> CA vEnv fEnv acc @ CE vEnv fEnv e @ [STI; INCSP -1]
     
         | Block([],stms)   -> CSs vEnv fEnv stms
-
-        | Block(dcls, stms) -> let rec loop decList vEnv' = (*Inspiration from Peter Sestoft MicroC*)
-                                   match decList with
-                                   | [] -> (vEnv', [])
-                                   | dec :: decTail ->
-                                     let varDec = match dec with | VarDec(t,s) -> (t,s)
-                                     let (vEnv1, code1) = allocate LocVar varDec vEnv'
-                                     let (vEnv2, code) = loop decTail vEnv1
-                                     (vEnv2, code1 @ code)
-                               let (vEnv1, codeDec) = loop dcls vEnv
-                               codeDec @ CSs vEnv1 fEnv stms @ [INCSP (snd vEnv - snd vEnv1)]
+        | Block(dcls, stms) -> let (newvEnv, code1, size1) = List.fold (fun (vE, code, size) dec -> let (t, x, s) = match dec with
+                                                                                                    |VarDec(t, x)-> match t with 
+                                                                                                                        | ATyp(_,Some(i)) -> (t, x, size + i + 1)
+                                                                                                                        | _ -> (t, x, size + 1)
+                                                                                                    | _ -> failwith ""
+                                                                                                    let (vE', code') = allocate LocVar (t, x) vE
+                                                                                                    (vE', code@code', s)) (vEnv, [], 0) dcls
+                               let code = CSs newvEnv fEnv stms
+                               code1 @ code @ [INCSP -size1]
+      
         
         | Alt (GC (gcl))   -> let labend = newLabel()
                               List.fold (fun il (e, stms) ->
@@ -149,7 +148,7 @@ module CodeGeneration =
             [RET (snd vEnv - 1)]
         | Return (Some e) -> 
             CE vEnv fEnv e @ [RET (snd vEnv)]      
-        | Call(s, es) -> callfun s es vEnv fEnv @ [INCSP -1]
+        | Call(s, es) -> callfun s es vEnv fEnv @ [INCSP -1]          
         | _               -> failwith "CS: this statement is not supported yet"
     
     and CSs vEnv fEnv stms = List.collect (CS vEnv fEnv) stms 

@@ -1,9 +1,3 @@
 ﻿begin
-  a : int[3],
-  procedure f(): int = 
-   {
-   b: int[2],
-   procedure g(c: int[]): int = {c[0] := 25; print c[0]};
-   b[1] := 7
-   };
+  a := b[0]
 end

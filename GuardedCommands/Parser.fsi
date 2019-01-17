@@ -8,7 +8,6 @@ type token =
   | SKIP
   | ABORT
   | FUNC
-  | PROC
   | NEG
   | PLUS
   | MINUS
@@ -52,7 +51,6 @@ type tokenId =
     | TOKEN_SKIP
     | TOKEN_ABORT
     | TOKEN_FUNC
-    | TOKEN_PROC
     | TOKEN_NEG
     | TOKEN_PLUS
     | TOKEN_MINUS
@@ -97,11 +95,7 @@ type nonTerminalId =
     | NONTERM_Prog
     | NONTERM_BasicTyp
     | NONTERM_Typ
-    | NONTERM_Var
-    | NONTERM_VarL
-    | NONTERM_VarList
     | NONTERM_Dec
-    | NONTERM_ArrayDec
     | NONTERM_DecL
     | NONTERM_DecList
     | NONTERM_DecVar
@@ -109,8 +103,6 @@ type nonTerminalId =
     | NONTERM_DecVarList
     | NONTERM_Access
     | NONTERM_Stm
-    | NONTERM_BDecList
-    | NONTERM_BDec
     | NONTERM_StmL
     | NONTERM_StmList
     | NONTERM_GuardedCommand

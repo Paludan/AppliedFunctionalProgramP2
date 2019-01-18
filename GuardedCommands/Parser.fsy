@@ -10,12 +10,12 @@ open GuardedCommands.Frontend.AST
 %token LP LCP LSP RP RCP RSP
 %token IF FI DO OD BEGIN END RET
 %token COMMA COLON SEMI BAR TO
-%token NEG PLUS MINUS TIMES AND EQ LE LT GT NEQ DREF ADDROF
+%token NEG PLUS MINUS TIMES AND EQ LE LT GT NEQ DREF ADDROF OR
 %token PRINT ASG SKIP ABORT FUNC PROC
 %token EOF
 %token HIGH
 
-%left AND
+%left AND OR
 %nonassoc NEG
 %left EQ LE LT GT NEQ
 %left PLUS MINUS 
@@ -143,6 +143,7 @@ Exp:
   | Exp PLUS Exp                      { Apply("+", [$1; $3])}
   | Exp MINUS Exp                     { Apply("-", [$1; $3])}
   | Exp AND Exp                       { Apply("&&", [$1; $3])}
+  | Exp OR Exp                        { Apply("||", [$1; $3])}
   | Exp EQ Exp                        { Apply("=", [$1; $3])}
   | Exp LE Exp                        { Apply("<=", [$1; $3])}
   | Exp GT Exp                        { Apply(">", [$1; $3])}

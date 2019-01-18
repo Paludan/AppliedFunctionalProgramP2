@@ -47,6 +47,9 @@ module CodeGeneration =
                                     let labfalse = newLabel()
                                     CE vEnv fEnv b1 @ [IFZERO labfalse] @ CE vEnv fEnv b2
                                     @ [GOTO labend; Label labfalse; CSTI 0; Label labend]
+        | Apply("||", [b1;b2]) ->   let labend = newLabel()
+                                    let labtrue = newLabel()
+                                    CE vEnv fEnv b1 @ [IFNZRO labtrue] @ CE vEnv fEnv b2 @ [GOTO labend; Label labtrue; CSTI 1 ; Label labend]
         
         | Apply(o,[e1;e2]) when List.exists (fun x -> o=x) ["+"; "*"; "=";"-"; "<>"; "<"; ">="; ">"; "<="]
              -> let ins = match o with

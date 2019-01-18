@@ -6,6 +6,7 @@ open Machine
 open GuardedCommands.Frontend.AST
 
 module TypeCheck = 
+   open Parser
 
 /// tcE gtenv ltenv e gives the type for expression e on the basis of type environments gtenv and ltenv
 /// for global and local variables 
@@ -17,7 +18,7 @@ module TypeCheck =
          | Apply(f,[e]) when List.exists (fun x ->  x=f) ["-";"!"]  
                             -> tcMonadic gtenv ltenv f e        
 
-         | Apply(f,[e1;e2]) when List.exists (fun x ->  x=f) ["+";"*"; "="; "&&"; "-"; "<"; ">"; "<>"; "<="; ">="]        
+         | Apply(f,[e1;e2]) when List.exists (fun x ->  x=f) ["+";"*"; "="; "&&"; "-"; "<"; ">"; "<>"; "<="; ">="; "||"]        
                             -> tcDyadic gtenv ltenv f e1 e2   
 
          | Apply(f,es)    -> tcNaryFunction gtenv ltenv f es
@@ -34,7 +35,7 @@ module TypeCheck =
    and tcDyadic gtenv ltenv f e1 e2 = match (f, tcE gtenv ltenv e1, tcE gtenv ltenv e2) with
                                       | (o, ITyp, ITyp) when List.exists (fun x ->  x=o) ["+";"*"; "-"]  -> ITyp
                                       | (o, ITyp, ITyp) when List.exists (fun x ->  x=o) ["="; "<"; ">"; "<>"; "<="; ">="] -> BTyp
-                                      | (o, BTyp, BTyp) when List.exists (fun x ->  x=o) ["&&";"="]     -> BTyp 
+                                      | (o, BTyp, BTyp) when List.exists (fun x ->  x=o) ["&&";"="; "||"]     -> BTyp 
                                       | _                      -> failwith("illegal/illtyped dyadic expression: " + f)
 
    and tcNaryFunction gtenv ltenv f es =   let ftype = if (Map.containsKey f gtenv)
@@ -88,16 +89,21 @@ module TypeCheck =
                                          | None   -> failwith ("no declaration for : " + x)
                                          | Some t -> t
                              | Some t -> t            
-         | AIndex(acc, e) -> let atyp= tcA gtenv ltenv acc
-                             match atyp with
-                                | ATyp(t, into) -> match into with
-                                                    | None -> t
-                                                    | Some num-> match e with 
-                                                                    | N n -> if ((n >= 0) && (n < num))
-                                                                             then t
-                                                                             else failwith "Index is not a valid number"
-                                                                    | _ ->   t
-                                | _ -> failwith ("It's not a array")
+         | AIndex(acc, e) -> if tcE gtenv ltenv e = ITyp 
+                             then let atyp= tcA gtenv ltenv acc
+                                  match atyp with
+                                    | ATyp(t, into) -> match into with
+                                                        | None -> t
+                                                        | Some num-> match e with 
+                                                                        | N n -> if ((n >= 0) && (n < num))
+                                                                                    then t
+                                                                                    else failwith "Index is not a valid number"
+                                                                        | Apply ("-", [N n]) -> if (n > 0)
+                                                                                                then failwith "Index is not a valid number"
+                                                                                                else failwith ""
+                                                                        | _ ->   t
+                                    | _ -> failwith ("It's not a array")
+                              else failwith "Index must be an integer"
                                           
                              
   

@@ -146,15 +146,15 @@ module TypeCheck =
                       | VarDec(t,s)               -> Map.add s t gtenv
                       | FunDec(topt,f, decs, stm) -> let namel = List.map getNameD decs
                                                      if (Set.count (Set.ofList namel) = List.length namel)
-                                                     then //failwith("")
-                                                          let typ = FTyp(List.map getTypD decs, topt)
+                                                     then let typ = FTyp(List.map getTypD decs, topt)
                                                           let newgtenv =Map.add f typ gtenv
                                                           if topt <> None
-                                                          then (tcS newgtenv (Map.add "function" typ (tcGDecs Map.empty decs)) stm) |>ignore
-                                                               if (checkReturn stm) = false 
-                                                               then failwith "Function doesn't return"
+                                                          then if (checkReturn stm) 
+                                                               then (tcS newgtenv (Map.add "function" typ (tcGDecs Map.empty decs)) stm) |>ignore
+                                                               else failwith "Function doesn't return"
+                                                          else (tcS newgtenv (tcGDecs Map.empty decs) stm) |>ignore
                                                           newgtenv
-                                                     else failwith ("Parameter names in a function should be different")
+                                                     else failwith ("Parameter names in a function\procedure should be different")
                                                      
     and checkReturn = function
               | Return e  -> true
@@ -165,11 +165,11 @@ module TypeCheck =
 
     and getNameD = function
                     | VarDec(t,s)               -> s
-                    | FunDec(topt,f, decs, stm) -> failwith ("Function can't be a parameter of function") //f
+                    | FunDec(topt,f, decs, stm) -> failwith ("Function can't be a parameter of function or procedure") //f
 
    and getTypD = function
                     | VarDec(t,s)               -> t
-                    | FunDec(topt,f, decs, stm) -> failwith ("Function can't be a parameter of function") //FTyp(List.map getTypD decs, topt)
+                    | FunDec(topt,f, decs, stm) -> failwith ("Function can't be a parameter of function or procedure") //FTyp(List.map getTypD decs, topt)
                                                 
    and tcGDecs gtenv = function
                        | dec::decs -> tcGDecs (tcGDec gtenv dec) decs

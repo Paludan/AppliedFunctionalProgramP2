@@ -124,15 +124,17 @@ module TypeCheck =
                          | Ass(acc,e) -> if tcA gtenv ltenv acc = tcE gtenv ltenv e 
                                          then ()
                                          else failwith "illtyped assignment"                                
-                         | Return(expo) -> match Map.find "function" ltenv with
-                                            |FTyp (tpyl, topt) -> let typeo = 
-                                                                        match expo with 
-                                                                        | Some t -> Some (tcE gtenv ltenv t)
-                                                                        | None -> None
-                                                                  if (typeo = topt)
-                                                                  then ()
-                                                                  else failwith ("Return type is not correct")
-                                            | _  -> failwith ("It's not a function")
+                         | Return(expo) -> if Map.containsKey "function" ltenv 
+                                           then match Map.find "function" ltenv with
+                                                    |FTyp (tpyl, topt) -> let typeo = 
+                                                                                match expo with 
+                                                                                | Some t -> Some (tcE gtenv ltenv t)
+                                                                                | None -> None
+                                                                          if (typeo = topt)
+                                                                          then ()
+                                                                          else failwith ("Return type is not correct")
+                                                    | _  -> failwith ("It's not a function")
+                                           else failwith "Procedure cannot have return statements"
                                             
                          | Block(decs,stms) -> let newltenv = tcGDecs ltenv decs 
                                                List.iter (tcS gtenv newltenv) stms

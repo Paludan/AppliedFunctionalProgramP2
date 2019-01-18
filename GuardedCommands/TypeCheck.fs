@@ -7,6 +7,7 @@ open GuardedCommands.Frontend.AST
 
 module TypeCheck = 
    open Parser
+   open System.Diagnostics
 
 /// tcE gtenv ltenv e gives the type for expression e on the basis of type environments gtenv and ltenv
 /// for global and local variables 
@@ -92,16 +93,18 @@ module TypeCheck =
          | AIndex(acc, e) -> if tcE gtenv ltenv e = ITyp 
                              then let atyp= tcA gtenv ltenv acc
                                   match atyp with
-                                    | ATyp(t, into) -> match into with
-                                                        | None -> t
-                                                        | Some num-> match e with 
-                                                                        | N n -> if ((n >= 0) && (n < num))
-                                                                                    then t
-                                                                                    else failwith "Index is not a valid number"
-                                                                        | Apply ("-", [N n]) -> if (n > 0)
-                                                                                                then failwith "Index is not a valid number"
-                                                                                                else failwith ""
-                                                                        | _ ->   t
+                                    | ATyp(t, into) -> 
+                                        match into with
+                                        | None -> t
+                                        | Some num-> 
+                                            match e with 
+                                            | N n -> if ((n >= 0) && (n < num))
+                                                        then t
+                                                        else failwith "Index is not a valid number"
+                                            | Apply ("-", [N n]) -> if (n > 0)
+                                                                    then failwith "Index is not a valid number"
+                                                                    else failwith ""
+                                            | _ ->   t
                                     | _ -> failwith ("It's not a array")
                               else failwith "Index must be an integer"
                                           
@@ -122,14 +125,14 @@ module TypeCheck =
                                          then ()
                                          else failwith "illtyped assignment"                                
                          | Return(expo) -> match Map.find "function" ltenv with
-                                                    |FTyp (tpyl, topt) -> let typeo = 
-                                                                              match expo with 
-                                                                              | Some t -> Some (tcE gtenv ltenv t)
-                                                                              | None -> None
-                                                                          if (typeo = topt)
-                                                                          then ()
-                                                                          else failwith ("Return type is not correct")
-                                                    | _  -> failwith ("It's not a function")
+                                            |FTyp (tpyl, topt) -> let typeo = 
+                                                                        match expo with 
+                                                                        | Some t -> Some (tcE gtenv ltenv t)
+                                                                        | None -> None
+                                                                  if (typeo = topt)
+                                                                  then ()
+                                                                  else failwith ("Return type is not correct")
+                                            | _  -> failwith ("It's not a function")
                                             
                          | Block(decs,stms) -> let newltenv = tcGDecs ltenv decs 
                                                List.iter (tcS gtenv newltenv) stms
@@ -138,30 +141,27 @@ module TypeCheck =
                          | Call (p, es)   -> tcNaryProcedure gtenv ltenv p es
                          | _              -> failwith "tcS: this statement is not supported yet"
 
-    (*and tcSreturn gtenv ltenv topt  = function
-                     | Return(expo) ->  let typeo = match expo with 
-                                                    | Some t -> Some (tcE gtenv ltenv t)
-                                                    | None -> None
-                                        if (typeo = topt)
-                                        then ()
-                                        else failwith ("Return type is not correct")
-                     | stm          ->  tcS gtenv ltenv stm*)
-
 
    and tcGDec gtenv = function  
                       | VarDec(t,s)               -> Map.add s t gtenv
-                      | FunDec(topt,f, decs, stm) -> //failwith("")
-                                                     let namel = List.map getNameD decs
+                      | FunDec(topt,f, decs, stm) -> let namel = List.map getNameD decs
                                                      if (Set.count (Set.ofList namel) = List.length namel)
                                                      then //failwith("")
                                                           let typ = FTyp(List.map getTypD decs, topt)
                                                           let newgtenv =Map.add f typ gtenv
-                                                          (tcS newgtenv (Map.add "function" typ (tcGDecs Map.empty decs)) stm) |>ignore
-                                                          //tcSreturn newgtenv (tcGDecs Map.empty decs) stm
+                                                          if topt <> None
+                                                          then (tcS newgtenv (Map.add "function" typ (tcGDecs Map.empty decs)) stm) |>ignore
+                                                               if (checkReturn stm) = false 
+                                                               then failwith "Function doesn't return"
                                                           newgtenv
                                                      else failwith ("Parameter names in a function should be different")
                                                      
-                                                  
+    and checkReturn = function
+              | Return e  -> true
+              | Alt (GC (gcl)) -> List.exists (fun stm -> checkReturn stm) (List.fold (fun stl (e,stms)-> stl@stms) [] gcl)
+              | Do (GC (gcl))-> List.exists (fun stm -> checkReturn stm) (List.fold (fun stl (e,stms)-> stl@stms) [] gcl)   
+              | Block (decs,stms) -> List.exists (fun stm -> checkReturn stm) stms
+              | _ -> false
 
     and getNameD = function
                     | VarDec(t,s)               -> s
